@@ -1,0 +1,12 @@
+# User configuration
+AbletonHotkeys.ini
+
+# Windows system files
+desktop.ini
+Thumbs.db
+ehthumbs.db
+$RECYCLE.BIN/
+
+# AutoHotkey compiled scripts
+*.exe
+*.ahk.bak 
