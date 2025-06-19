@@ -2,6 +2,13 @@
 
 configFile := "AbletonHotkeys.ini"
 
+; --- Установка иконки в трей ---
+if A_IsCompiled {
+    TraySetIcon(A_ScriptFullPath) ; Используем иконку встроенную в EXE
+} else {
+    TraySetIcon(A_ScriptDir "\app.ico") ; Используем внешнюю иконку для разработки
+}
+
 IsAutoStartEnabled() {
     val := IniRead(configFile, "Settings", "AutoStart", "0")
     return val = "1"
@@ -145,7 +152,7 @@ gHotkeys := [
     {command: "Preview Selected File", default: "Shift + Enter", custom: ""},
     {command: "Search in Browser", default: "Ctrl + F", custom: ""},
     {command: "Show Similar Files Using Similarity Search", default: "Ctrl + Shift + F", custom: ""},
-    {command: "Insert Empty MIDI Clip", default: "Ctrl + Shigt + M", custom: ""},
+    {command: "Insert Empty MIDI Clip", default: "Ctrl + Shift + M", custom: ""},
     {command: "Bounce to New Track", default: "Ctrl + Alt + Shift + J", custom: ""},
     {command: "Show/Hide Return Tracks", default: "Ctrl + Alt + R", custom: ""},
     {command: "Browser History Back", default: "Ctrl + [", custom: ""},
@@ -295,7 +302,6 @@ CreateTrayMenu() {
     A_TrayMenu.Add("Reload", (*) => Reload())
     A_TrayMenu.Add()
     A_TrayMenu.Add("Exit", (*) => ExitApp())
-    A_TrayMenu.SetIcon("Exit", "app.ico")
 }
 
 ToggleMainWindow() {
@@ -1092,4 +1098,33 @@ HotkeyCheckDisplay(hk) {
 
     ; Если кастомного совпадения нет — выводим сообщение об отсутствии соответствия
     lastDefaultEdit.Value := "Нет соответствий"
+}
+
+; --- Base64 декодер ---
+Base64_Decode(string) {
+    static base64 := "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+    padding := Mod(4 - Mod(StrLen(string), 4), 4)
+    string .= padding ? SubStr("===", 1, padding) : ""
+    decoded := Buffer(Ceil(StrLen(string) * 3 / 4))
+    index := 1, i := 0
+    Loop Parse string {
+        if (i := InStr(base64, A_LoopField) - 1) >= 0
+            value := value << 6 | i
+        else continue
+        if Mod(A_Index, 4) = 0 {
+            decoded[index++] := value >> 16
+            decoded[index++] := value >> 8 & 0xFF
+            decoded[index++] := value & 0xFF
+            value := 0
+        }
+    }
+    if padding {
+        decoded.Size -= padding
+        if padding = 1 {
+            decoded[index - 1] := value >> 8 & 0xFF
+            decoded[index - 2] := value >> 16
+        } else if padding = 2
+            decoded[index - 1] := value >> 16
+    }
+    return decoded
 }
