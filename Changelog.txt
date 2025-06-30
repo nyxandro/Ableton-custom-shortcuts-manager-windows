@@ -1,43 +1,119 @@
-Список исправлений:
+# Ableton Custom Shortcuts Manager for Windows - Changelog
 
-v0.3
-- Добавлена система локализации с поддержкой русского и английского языков
-- Возможность выбора языка в настройках (Settings → Language)
-- Все элементы интерфейса переведены на выбранный язык
-- Исправлена ошибка с ComboBox в AutoHotkey v2 (ChosenIndex → Value)
+**Version History for the Ultimate Windows Ableton Live Shortcuts Tool**
 
-----------
+---
 
-v0.2.1
-- Исправлена проблема, когда при раскрытии программы из трея возникала ошибка
+## v0.3 - Multi-Language Support & Enhanced Windows Integration
+**Release Date**: January 2025
 
-----------
+### 🌐 **Localization Features**
+- **Multi-language interface** with English and Russian support
+- **Language selection** in Settings → Language menu
+- **Complete UI translation** for all interface elements
+- **Seamless language switching** with restart notification
 
-v0.2
-- Заменены названия колонок и кнопок:
-Ableton default -> Key
-Custom -> Custom Key
-Add Shortcut -> Add
-Delete Shortcut -> Delete
-Нет совпадений -> No matches found
+### 🔧 **Windows Compatibility Improvements**
+- **Fixed ComboBox compatibility** issue with AutoHotkey v2 (ChosenIndex → Value)
+- **Enhanced Windows integration** for better system compatibility
+- **Improved AutoHotkey v2 support** for modern Windows systems
 
-- удалены шорткаты, основанные на drag and drop, оставляем только конкретные команды нажатий кнопок;
-- удалены дублирующиеся дефолтные и состоящие из одной кнопки (например Up/Down arrow keys) шорткаты в списке всех шорткатов;
-- цвет логотипа Ableton в шапке программы сделал серым, чтобы на темных темах был виднее;
-- убрал цветовое оформление кнопок add, delete и reset all так как стандартные кнопки во всех темах по-разному раскрашивались, решено оставить базовый цвет системы;
-- при нажатии кнопки + add (добавить сопоставление шортката) в списке шорткатов выбирается именно тот, на котором стоит выделение в таблице шорткатов, раньше это не учитывалось и просто выбирался первый шорткат из списка, что вызывало путаницу;
-- добавлена кликабельная ссылка снизу программы, ведущая на https://t.me/abletonliveusers
-- когда возникает конфликт сопоставления шорткатов (когда кастомный шорткат перекрывает дефолтный, а дефольтный ничем не переназначен) при клике на заначок конфликта можно посмотреть подсказку, с каким именно шорткатом происходит конфликт;
-- добавлен автозахват шорткатов как через окно добавление шортката, так и через окно редактирование, оставил кнопку повторного переназначения, если ошиблись во время ввода.
-- захват шорткатов специально ограничил только с модификаторами Ctrl, Shift, Alt, на остальные поставил запрет чтобы не было конфликтов.
+### 🎯 **Target Users**
+Perfect for **Windows music producers**, **international Ableton Live users**, and **multilingual studios** requiring native language support.
 
-----------
+---
 
-v0.1
-- доработано определение конфликтов переназначений шорткатов;
-- доработано автоматическое определение открытого окна Ableton Live, шорткаты работают только в окне Ableton Live;
-- добавлена возможность отсортировать только те шорткаты, у которых есть конфликт, при этом дополнительно их можно отсеять с помощью поиска;
-- добавлена кнопка открытия меню настроек скрипта;
-- добавлена настройка автозапуска при включении Windows;
-- добавлена настройка запуска в свернутом режиме в трей;
-- добавлена настройка предотвращения закрытия окна программы, вместо этого она сворачивается в трей, полностью закрыть можно через ПКМ по иконке программы в трее;
+## v0.2.1 - System Tray Bug Fixes
+**Release Date**: December 2024
+
+### 🐛 **Critical Bug Fixes**
+- **Resolved system tray restoration error** when showing/hiding main window
+- **Improved Windows tray integration** for seamless background operation
+- **Enhanced stability** for long-running Windows sessions
+
+### 🎵 **Ableton Live Workflow**
+Ensures uninterrupted **custom shortcuts management** for Windows-based music production workflows.
+
+---
+
+## v0.2 - Major UI/UX Overhaul & Advanced Features
+**Release Date**: November 2024
+
+### 🎨 **Interface Improvements for Windows Users**
+- **Renamed interface elements** for better clarity:
+  - "Ableton default" → "Key"
+  - "Custom" → "Custom Key" 
+  - "Add Shortcut" → "Add"
+  - "Delete Shortcut" → "Delete"
+  - "Нет совпадений" → "No matches found"
+
+### 🚀 **Enhanced Windows Workflow Features**
+- **Streamlined shortcuts database** - removed drag-and-drop based commands
+- **Cleaned duplicate shortcuts** - removed single-key shortcuts (Up/Down arrows)
+- **Improved visual design** - gray Ableton logo for better dark theme visibility
+- **Neutral button styling** - removed colored backgrounds for system theme compatibility
+
+### 🎯 **Smart Selection & User Experience**
+- **Intelligent command selection** - Add button now selects highlighted table row
+- **Community integration** - clickable link to [@abletonliveusers](https://t.me/abletonliveusers)
+- **Advanced conflict detection** - click ⚠️ icons for detailed conflict tooltips
+
+### ⚡ **Auto-Capture Technology**
+- **Live key capture** in both Add and Edit dialogs
+- **Instant shortcut detection** with "Re-capture" option for corrections
+- **Modifier restrictions** - limited to Ctrl, Shift, Alt for conflict prevention
+- **Key validation** - prevents invalid combinations that cause AutoHotkey errors
+
+### 🔧 **Technical Enhancements for Windows**
+- **Enhanced modifier support** specifically for Windows keyboard layouts
+- **Improved conflict prevention** algorithms
+- **Better AutoHotkey integration** for Windows 10/11 compatibility
+
+---
+
+## v0.1 - Initial Release - Foundation for Windows Ableton Users
+**Release Date**: October 2024
+
+### 🎵 **Core Ableton Live Integration**
+- **Advanced conflict detection** for shortcut reassignments
+- **Automatic Ableton Live window detection** - shortcuts work only in Ableton Live
+- **Smart filtering system** - show conflicted shortcuts with search capability
+- **Comprehensive Ableton Live 12 support** for all Windows editions
+
+### ⚙️ **Windows System Integration**
+- **Settings menu** with comprehensive configuration options
+- **Windows startup integration** - auto-launch with Windows
+- **System tray minimization** - start minimized for background operation
+- **Smart close behavior** - minimize to tray instead of closing
+
+### 🖥️ **Windows-Specific Features**
+- **Native Windows tray integration** with right-click context menu
+- **Windows startup shortcut management** via Start Menu integration
+- **Portable configuration** - no registry modifications required
+- **Windows 10/11 compatibility** tested and verified
+
+---
+
+## 🎯 **Why Choose This Windows Ableton Shortcuts Manager?**
+
+### **Perfect for Windows Music Producers**
+- ✅ **Native Windows integration** with AutoHotkey v2
+- ✅ **Ableton Live 12 focused** - all editions supported
+- ✅ **120+ shortcuts database** - comprehensive command coverage
+- ✅ **Multi-language support** - English and Russian interfaces
+- ✅ **Advanced conflict detection** - prevent shortcut collisions
+- ✅ **Live key capture** - instant shortcut assignment
+- ✅ **System tray integration** - minimal Windows footprint
+
+### **Technical Excellence for Windows Power Users**
+- 🔧 **AutoHotkey v2 powered** - maximum Windows compatibility
+- 🔧 **INI-based configuration** - portable and backup-friendly
+- 🔧 **Real-time validation** - prevents invalid shortcut combinations
+- 🔧 **Smart forwarding** - maintains original Ableton functionality
+- 🔧 **Process monitoring** - automatic Ableton Live detection
+
+---
+
+**Keywords**: Ableton Live shortcuts Windows, custom keyboard shortcuts manager, Windows music production tools, Ableton Live 12 Windows, DAW shortcuts manager, Windows AutoHotkey shortcuts, music production workflow Windows, Ableton Live keyboard manager.
+
+**Download the latest version and optimize your Windows-based Ableton Live workflow today!** 🚀

@@ -57,7 +57,7 @@ Lang := Map(
         
         ; О программе
         "about_title", "About",
-        "about_version", "Ableton Live Shortcuts V0.3",
+        "about_version", "Ableton Custom Shortcuts Manager V0.3",
         "about_year", "2025",
         "about_link", "by @abletonliveusers - community in telegram",
         "about_created", "Created using AI",
@@ -134,7 +134,7 @@ Lang := Map(
         
         ; О программе
         "about_title", "О программе", 
-        "about_version", "Ableton Live Shortcuts V0.2.1",
+        "about_version", "Ableton Custom Shortcuts Manager V0.3",
         "about_year", "2025",
         "about_link", "by @abletonliveusers - сообщество в телеграм",
         "about_created", "Создано с помощью ИИ",
