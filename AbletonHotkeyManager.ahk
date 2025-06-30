@@ -42,7 +42,6 @@ gHotkeys := [
     {command: "Move Focus to the Help View", default: "Alt + 7", custom: ""},
     {command: "Move Focus to the Selected Clip Panel", default: "Alt + 8", custom: ""},
     {command: "Move Focus to the Clip Panels", default: "Alt + Shift + P", custom: ""},
-    {command: "Move to Previous Focusable Control", default: "Shift + Tab", custom: ""},
     {command: "Move to Next Neighbor of Current Control", default: "Ctrl + Tab", custom: ""},
     {command: "Move to Previous Neighbor of Current Control", default: "Ctrl + Shift + Tab", custom: ""},
     {command: "New Live Set", default: "Ctrl + N", custom: ""},
@@ -50,15 +49,13 @@ gHotkeys := [
     {command: "Save Live Set", default: "Ctrl + S", custom: ""},
     {command: "Save Live Set As...", default: "Ctrl + Shift + S", custom: ""},
     {command: "Quit Live", default: "Ctrl + Q", custom: ""},
-    {command: "Group Devices", default: "Ctrl + G", custom: ""},
-    {command: "Ungroup Devices", default: "Ctrl + Shift + G", custom: ""},
+    {command: "Group Devices / Group Selected Tracks", default: "Ctrl + G", custom: ""},
+    {command: "Ungroup Devices / Ungroup Tracks", default: "Ctrl + Shift + G", custom: ""},
     {command: "Show/Hide Plug-In Window", default: "Ctrl + Alt + P", custom: ""},
     {command: "Set Start Marker", default: "Ctrl + F9", custom: ""},
     {command: "Set Loop Brace Start", default: "Ctrl + F10", custom: ""},
     {command: "Set Loop Brace End", default: "Ctrl + F11", custom: ""},
     {command: "Set End Marker", default: "Ctrl + F12", custom: ""},
-    {command: "Nudge Loop Brace Left/Right", default: "Left / Right", custom: ""},
-    {command: "Move Loop by Loop Length", default: "Up / Down", custom: ""},
     {command: "Halve/Double Loop Length", default: "Ctrl + Up / Ctrl + Down", custom: ""},
     {command: "Shorten/Lengthen Loop", default: "Ctrl + Left / Ctrl + Right", custom: ""},
     {command: "Select Material in Loop", default: "Ctrl + Shift + L", custom: ""},
@@ -68,23 +65,16 @@ gHotkeys := [
     {command: "Pan Left/Right of Selection", default: "Ctrl + Alt + Left/Right", custom: ""},
     {command: "Quantize", default: "Ctrl + U", custom: ""},
     {command: "Quantize Settings", default: "Ctrl + Shift + U", custom: ""},
-    {command: "Move Selected Warp Marker", default: "Left / Right", custom: ""},
-    {command: "Select Warp Marker", default: "Ctrl + Left / Ctrl + Right", custom: ""},
     {command: "Move Clip Region with Start Marker", default: "Shift + Left / Shift + Right", custom: ""},
     {command: "Insert Warp Marker", default: "Ctrl + I", custom: ""},
     {command: "Delete Warp Marker", default: "Delete", custom: ""},
     {command: "Insert Transient", default: "Ctrl + Shift + I", custom: ""},
-    {command: "Delete Transient", default: "Ctrl + Shift + Delete", custom: ""},
     {command: "Select All Notes", default: "Ctrl + A", custom: ""},
-    {command: "Chop Notes on Grid", default: "Ctrl + E", custom: ""},
-    {command: "Join Notes", default: "Ctrl + J", custom: ""},
     {command: "Fit Notes to Time Range", default: "Ctrl + Alt + J", custom: ""},
-    {command: "Scroll Editor Vertically", default: "Page Up / Page Down", custom: ""},
     {command: "Scroll Editor Vertically in Fine Increments", default: "Shift + Page Up / Shift + Page Down", custom: ""},
     {command: "Scroll Editor Horizontally", default: "Ctrl + Page Up / Ctrl + Page Down", custom: ""},
     {command: "Select Next/Previous Note", default: "Alt + Up / Alt + Down", custom: ""},
     {command: "Select Next/Previous Note in Same Key Track", default: "Alt + Left / Alt + Right", custom: ""},
-    {command: "Adjust Note Selection Velocity", default: "Ctrl + Up / Ctrl + Down", custom: ""},
     {command: "Adjust Note Selection Velocity Deviation", default: "Ctrl + Shift + Up / Ctrl + Shift + Down", custom: ""},
     {command: "Adjust Note Selection Chance", default: "Ctrl + Alt + Up / Ctrl + Alt + Down", custom: ""},
     {command: "Toggle Full-Size Clip View", default: "Ctrl + Alt + E", custom: ""},
@@ -92,13 +82,11 @@ gHotkeys := [
     {command: "Ungroup Notes", default: "Ctrl + Shift + 6", custom: ""},
     {command: "Apply Current MIDI Tool Settings", default: "Ctrl + Enter", custom: ""},
     {command: "Invert Note Selection", default: "Ctrl + Shift + A", custom: ""},
-    {command: "Show/Hide MIDI Note Filters", default: "Ctrl + Shift + F", custom: ""},
     {command: "Narrow Grid", default: "Ctrl + 1", custom: ""},
     {command: "Widen Grid", default: "Ctrl + 2", custom: ""},
     {command: "Triplet Grid", default: "Ctrl + 3", custom: ""},
     {command: "Snap to Grid", default: "Ctrl + 4", custom: ""},
     {command: "Fixed/Zoom-Adaptive Grid", default: "Ctrl + 5", custom: ""},
-    {command: "Sixteenth-Note Quantization", default: "Ctrl + 6", custom: ""},
     {command: "Eighth-Note Quantization", default: "Ctrl + 7", custom: ""},
     {command: "Quarter-Note Quantization", default: "Ctrl + 8", custom: ""},
     {command: "1-Bar Quantization", default: "Ctrl + 9", custom: ""},
@@ -110,25 +98,16 @@ gHotkeys := [
     {command: "Consolidate Selection into Clip", default: "Ctrl + J", custom: ""},
     {command: "Crop Selected Clips", default: "Ctrl + Shift + J", custom: ""},
     {command: "Resize Clip When Insert Marker is at Clip Edge", default: "Enter + Left/Right arrow keys", custom: ""},
-    {command: "Slide Waveform", default: "Shift + Alt + drag", custom: ""},
-    {command: "Stretch Warped Clip", default: "Shift + drag in clip title bar", custom: ""},
-    {command: "Select Time Within Clip", default: "Shift + Alt + drag in clip title bar", custom: ""},
     {command: "Create Fade/Crossfade", default: "Ctrl + Alt + F", custom: ""},
     {command: "Delete Fades/Crossfades in Selected Clip(s)", default: "Ctrl + Alt + Backspace", custom: ""},
     {command: "Toggle Loop Brace", default: "Ctrl + L", custom: ""},
-    {command: "Adjust Loop Brace Length", default: "Ctrl + Left/Right arrow keys", custom: ""},
-    {command: "Select Loop Brace Contents", default: "Ctrl + Shift + L", custom: ""},
     {command: "Capture MIDI", default: "Ctrl + Shift + C", custom: ""},
-    {command: "Insert Silence", default: "Ctrl + I", custom: ""},
     {command: "Cut Time", default: "Ctrl + Shift + X", custom: ""},
     {command: "Paste Time", default: "Ctrl + Shift + V", custom: ""},
     {command: "Duplicate Time", default: "Ctrl + Shift + D", custom: ""},
     {command: "Delete Time", default: "Ctrl + Shift + Delete", custom: ""},
-    {command: "Fold/Unfold Selected Tracks (alt)", default: "Left/Right arrow keys", custom: ""},
     {command: "Unfold All Tracks", default: "Alt + U", custom: ""},
     {command: "Adjust Height of Selected Tracks/Clips", default: "Alt + (+) / Alt + (-)", custom: ""},
-    {command: "Scroll Display Left/Right of Selection", default: "Ctrl + Alt + drag", custom: ""},
-    {command: "Nudge Selection Left/Right", default: "Left/Right arrow keys", custom: ""},
     {command: "Play from Insert Marker in Selected Clip", default: "Ctrl + Space", custom: ""},
     {command: "Move Focus to Mixer", default: "Alt + Shift + M", custom: ""},
     {command: "Show Take Lanes", default: "Ctrl + Alt + U", custom: ""},
@@ -139,19 +118,13 @@ gHotkeys := [
     {command: "Insert MIDI Track", default: "Ctrl + Shift + T", custom: ""},
     {command: "Insert Return Track", default: "Ctrl + Alt + T", custom: ""},
     {command: "Rename Selected Track", default: "Ctrl + R", custom: ""},
-    {command: "Group Selected Tracks", default: "Ctrl + G", custom: ""},
-    {command: "Ungroup Tracks", default: "Ctrl + Shift + G", custom: ""},
-    {command: "Move Nonadjacent Tracks Without Collapsing", default: "Ctrl + Arrow keys", custom: ""},
     {command: "Freeze/Unfreeze Tracks", default: "Ctrl + Alt + Shift + F", custom: ""},
     {command: "Continue Play from Stop Point", default: "Shift + Space", custom: ""},
     {command: "Arm Recording in Arrangement View", default: "Shift + F9", custom: ""},
     {command: "Record to Session View", default: "Ctrl + Shift + F9", custom: ""},
     {command: "Turn Audio Engine On/Off", default: "Ctrl + Alt + Shift + E", custom: ""},
-    {command: "Scroll Down/Up", default: "Up/Down arrow keys", custom: ""},
-    {command: "Close/Open Folders", default: "Left/Right arrow keys", custom: ""},
     {command: "Preview Selected File", default: "Shift + Enter", custom: ""},
     {command: "Search in Browser", default: "Ctrl + F", custom: ""},
-    {command: "Show Similar Files Using Similarity Search", default: "Ctrl + Shift + F", custom: ""},
     {command: "Insert Empty MIDI Clip", default: "Ctrl + Shift + M", custom: ""},
     {command: "Bounce to New Track", default: "Ctrl + Alt + Shift + J", custom: ""},
     {command: "Show/Hide Return Tracks", default: "Ctrl + Alt + R", custom: ""},
@@ -206,7 +179,7 @@ barW := 2
 barH := 17
 barGap := 3 ; стартовый отступ между палочками
 Loop 4 {
-    bar := mainGui.Add("Text", Format("x{} y{} w{} h{} vstatusBar{} Background000000", barX, barY, barW, barH, A_Index), "")
+    bar := mainGui.Add("Text", Format("x{} y{} w{} h{} vstatusBar{} BackgroundB0B0B0", barX, barY, barW, barH, A_Index), "")
     statusBars.Push(bar)
     barX += barW + (barGap)
 }
@@ -220,7 +193,7 @@ hBarW := 19
 hBarH := 2
 hBarGap := 3
 Loop 4 {
-    hbar := mainGui.Add("Text", Format("x{} y{} w{} h{} vstatusBarH{} Background000000", hBarX, hBarY, hBarW, hBarH, A_Index), "")
+    hbar := mainGui.Add("Text", Format("x{} y{} w{} h{} vstatusBarH{} BackgroundB0B0B0", hBarX, hBarY, hBarW, hBarH, A_Index), "")
     statusBarsH.Push(hbar)
     hBarY += hBarH + (hBarGap)
 }
@@ -243,8 +216,9 @@ btnConfOnly := mainGui.Add("Button", "x+10 yp w160", "Conflict only")
 conflictOnlyMode := false
 btnConfOnly.OnEvent("Click", ToggleConflictOnly)
 
-lv := mainGui.Add("ListView", "xm y+10 w700 r20", ["Command", "Ableton default", "Custom", "Conflict"])
+lv := mainGui.Add("ListView", "xm y+10 w700 r20", ["Command", "Key", "Custom Key", "Conflict"])
 lv.OnEvent("DoubleClick", EditHotkey)
+lv.OnEvent("Click", OnListViewClick)
 ; lv.OnEvent("ItemSelect", OnRowSelect) ; отключено – больше не обновляет поля при выборе строки
 lv.ModifyCol(1, 300) ; Команда — шире
 lv.ModifyCol(2, 140) ; Дефолтное
@@ -253,14 +227,11 @@ lv.ModifyCol(4, 60)  ; Conflict
 
 ; Кнопки управления внизу окна
 mainGui.Add("Text", "y+0") ; отступ перед нижними кнопками
-btnAdd := mainGui.Add("Button", "x10 y+0 w150", "➕ Add Shortcut")
-btnAdd.Opt("Background00CFFF") ; blue
+btnAdd := mainGui.Add("Button", "x12 y+0 w100", "➕ Add")
 btnAdd.OnEvent("Click", AddHotkey)
-btnDel := mainGui.Add("Button", "x+10 w150", "🗑 Delete Shortcut")
-btnDel.Opt("BackgroundFFA040") ; orange
+btnDel := mainGui.Add("Button", "x+10 w120", "🗑 Delete")
 btnDel.OnEvent("Click", DeleteHotkey)
-btnDelAll := mainGui.Add("Button", "x+10 w120", "❌ Reset All")
-btnDelAll.Opt("BackgroundFF3333") ; red
+btnDelAll := mainGui.Add("Button", "x+10 w130", "❌ Reset All")
 btnDelAll.OnEvent("Click", DeleteAllHotkeys)
 
 ; --- Группа для проверки хоткеев ---
@@ -270,8 +241,6 @@ arrow := mainGui.Add("Text", "x+10 yp+0 w20 Center", "→")
 lastDefaultEdit := mainGui.Add("Edit", "x+0 y+0 w230 ReadOnly vlastDefaultEdit", "")
 btnCheckCapture := mainGui.Add("Button", "x+10 yp-3 w120", "Capture")
 btnCheckCapture.OnEvent("Click", StartCheckCapture)
-
-
 
 ; --- Кнопка настроек в правом верхнем углу ---
 btnSettings := mainGui.Add("Button", "x500 y10 w100 h25", "Settings")
@@ -366,7 +335,7 @@ SaveSettings(settingsGui, cbAutoStart, cbHideOnClose, cbStartMin) {
 ShowAbout(*) {
     aboutGui := Gui("+Owner" mainGui.Hwnd, "About")
     aboutGui.SetFont("s10")
-    aboutGui.Add("Text", "xm ym", "Ableton Live Shortcuts V 0.1")
+    aboutGui.Add("Text", "xm ym", "Ableton Live Shortcuts V0.2")
     aboutGui.Add("Text", "xm", "2025")
     ; --- Ссылка внизу ---
 link := aboutGui.Add("Text", "xm Center cBlue", "by @abletonliveusers")
@@ -388,12 +357,11 @@ NormalizeKey(key) {
         "ins", "insert", "insert", "insert",
         "bs", "backspace", "backspace", "backspace",
         "tab", "tab", "enter", "enter",
-        "space", "space", "win", "win",
-        "appskey", "appskey", "appkey", "appskey",
+        "space", "space",
         "printscreen", "printscreen", "prtsc", "printscreen",
         "scrolllock", "scrolllock", "pause", "pause",
         "capslock", "capslock", "numlock", "numlock",
-        "+", "+", "^", "^", "!", "!", "#", "#"
+        "+", "+", "^", "^", "!", "!"
     )
     key := StrLower(key)
     return keyMap.Has(key) ? keyMap[key] : key
@@ -414,10 +382,6 @@ NormalizeHotkey(hk) {
             mods.Push("alt")
         else if p = "shift" || p = "+"
             mods.Push("shift")
-        else if p = "win" || p = "#"
-            mods.Push("win")
-        else if p = "appskey" || p = "appkey"
-            mods.Push("appskey")
         else if p = "" {
             continue
         } else if p = "plus" || p = "+" || p = "{+}" {
@@ -433,6 +397,8 @@ NormalizeHotkey(hk) {
         return "__MULTIKEY_ERROR__"
     if !IsValidMainKey(keys[1])
         return "__INVALID_KEY__"
+    if RequiresModifier(keys[1]) && uniqueMods.Length = 0
+        return "__REQUIRES_MODIFIER__"
     return (uniqueMods.Length ? ArrayJoin(uniqueMods, "+") . "+" : "") . keys[1]
 }
 
@@ -531,6 +497,94 @@ OnRowSelect(*) {
     UpdateHotkeyCheck(cust, def)
 }
 
+OnListViewClick(*) {
+    ; Получаем позицию клика
+    CoordMode("Mouse", "Client")
+    MouseGetPos(&mouseX, &mouseY)
+    
+    ; Получаем информацию о кликнутой ячейке
+    row := lv.GetNext(0, "F")
+    if !row {
+        ; Если кликнули не на строку, скрываем подсказку
+        ToolTip()
+        return
+    }
+    
+    ; Проверяем, кликнули ли на колонку "Conflict" (4-я колонка)
+    conflictText := lv.GetText(row, 4)
+    if conflictText = "⚠️" {
+        ; Получаем информацию о конфликте
+        cmd := lv.GetText(row, 1)
+        conflictInfo := GetConflictInfo(cmd)
+        if conflictInfo != "" {
+            ; Показываем подсказку
+            ToolTip(conflictInfo, mouseX + 20, mouseY + 20)
+            ; Автоматически убираем подсказку через 8 секунд
+            SetTimer(() => ToolTip(), -8000)
+        }
+    } else {
+        ; Если кликнули не на конфликт, скрываем подсказку
+        ToolTip()
+    }
+}
+
+GetConflictInfo(currentCommand) {
+    ; Найти текущий элемент в массиве
+    currentItem := ""
+    for item in gHotkeys {
+        if item.command = currentCommand {
+            currentItem := item
+            break
+        }
+    }
+    
+    if !currentItem
+        return ""
+    
+    conflictingCommands := []
+    
+    ; Определяем хоткей для проверки конфликтов
+    checkHotkey := ""
+    if currentItem.custom && currentItem.custom != "" {
+        checkHotkey := NormalizeHotkey(currentItem.custom)
+    } else {
+        checkHotkey := NormalizeHotkey(currentItem.default)
+    }
+    
+    if checkHotkey = "" || InStr(checkHotkey, "__")
+        return ""
+    
+    ; Ищем конфликтующие команды
+    BuildHotkeyMaps()
+    
+    for item in gHotkeys {
+        if item.command = currentCommand
+            continue
+            
+        ; Проверяем конфликт с кастомным хоткеем
+        if item.custom && item.custom != "" {
+            if NormalizeHotkey(item.custom) = checkHotkey {
+                conflictingCommands.Push(item.command . " (custom: " . item.custom . ")")
+            }
+        } else {
+            ; Проверяем конфликт с дефолтным хоткеем
+            if NormalizeHotkey(item.default) = checkHotkey {
+                conflictingCommands.Push(item.command . " (default: " . item.default . ")")
+            }
+        }
+    }
+    
+    if conflictingCommands.Length = 0
+        return ""
+    
+    result := "Conflict with:`n"
+    for _, conflictCmd in conflictingCommands {
+        result .= "• " . conflictCmd . "`n"
+    }
+    
+    return RTrim(result, "`n")
+}
+
 ShowList()
 
 ; После показа окна — корректируем координаты
@@ -541,11 +595,12 @@ Sleep 50 ; небольшой таймаут для корректного ра�
     lastCustomEdit.Move(x + 15, y + 30)
     arrow.Move(x + 258, y + 34)
     lastDefaultEdit.Move(x + 290, y + 30)
-    ; Автоматически уменьшаем высоту окна на 30 пикселей
-    mainGui.GetPos(&gx, &gy, &gw, &gh)
-    mainGui.Move(gx, gy, gw, gh - 30)
     btnCheckCapture.GetPos(&gx, &gy, &gw, &gh)
     btnCheckCapture.Move(gx + 40, gy - 55, gw, gh)
+    ; Создаем ссылку внизу после всех манипуляций с позициями
+    linkTelegram := mainGui.Add("Text", Format("x{} y{} w{} h20 cBlue", x, y + h + 10, w), "by: @abletonliveusers - community in telegram")
+    linkTelegram.SetFont("s10 underline")
+    linkTelegram.OnEvent("Click", (*) => Run("https://t.me/abletonliveusers"))
 }
 
 ; --- Остальной код (AddHotkey, EditHotkey, DeleteHotkey, RegisterAllCustomHotkeys и т.д.) должен быть ниже, как реализовано ранее ---
@@ -631,7 +686,7 @@ ToAhkHotkey(str) {
         return ""
 
     ; --- Определяем модификаторы ---
-    hasCtrl := false, hasAlt := false, hasShift := false, hasWin := false
+    hasCtrl := false, hasAlt := false, hasShift := false
     key := ""
 
     for _, part in StrSplit(str, ["+", " "]) {
@@ -652,10 +707,6 @@ ToAhkHotkey(str) {
             hasShift := true
             continue
         }
-        if (lp = "win" || lp = "#") {
-            hasWin := true
-            continue
-        }
 
         ; --- Основная клавиша ---
         if (lp ~= "^f\\d{1,2}$") {
@@ -670,6 +721,8 @@ ToAhkHotkey(str) {
             key := "{Esc}"
         } else if (lp = "delete") {
             key := "{Delete}"
+        } else if (lp = "backspace") {
+            key := "{Backspace}"
         } else if (lp = "home") {
             key := "{Home}"
         } else if (lp = "end") {
@@ -695,7 +748,7 @@ ToAhkHotkey(str) {
     if !key
         return ""
 
-    ; --- Формируем строку хоткея в каноническом порядке: ^ ! + # ---
+    ; --- Формируем строку хоткея в каноническом порядке: ^ ! + ---
     prefix := ""
     if hasCtrl
         prefix .= "^"
@@ -703,8 +756,6 @@ ToAhkHotkey(str) {
         prefix .= "!"
     if hasShift
         prefix .= "+"
-    if hasWin
-        prefix .= "#"
 
     return prefix . key
 }
@@ -739,6 +790,8 @@ WM_KEYDOWN(wParam, lParam, msg, hwnd) {
         key := "Tab"
     else if (key = "Space")
         key := "Space"
+    else if (key = "Backspace")
+        key := "Backspace"
     g_Captured := (uniqueMods.Length ? ArrayJoin(uniqueMods, " + ") . " + " : "") . key
     g_EditHotkey.Value := g_Captured
     ; Обновляем второе поле проверки соответствий
@@ -764,7 +817,15 @@ IsModKey(key) {
 
 AddHotkey(*) {
     static keyNames := Map("Ctrl", "Ctrl", "Shift", "Shift", "Alt", "Alt", "Tab", "Tab", "Space", "Space")
-    addGui := Gui(, "Add Shortcut")
+    
+    ; Получаем выделенную строку из таблицы
+    selectedRow := lv.GetNext(0, "F")
+    selectedCommand := ""
+    if selectedRow {
+        selectedCommand := lv.GetText(selectedRow, 1)
+    }
+    
+    addGui := Gui(, "Add")
     addGui.SetFont("s10")
     addGui.AddText(, "Command:")
     cbCmd := addGui.Add("ComboBox", "w300 vcmdName")
@@ -772,10 +833,22 @@ AddHotkey(*) {
     for item in gHotkeys
         cmds.Push(item.command)
     cbCmd.Add(cmds)
-    cbCmd.Choose(1)
+    
+    ; Выбираем команду из выделенной строки или первую, если ничего не выделено
+    if selectedCommand {
+        for idx, cmd in cmds {
+            if cmd = selectedCommand {
+                cbCmd.Choose(idx)
+                break
+            }
+        }
+    } else {
+        cbCmd.Choose(1)
+    }
     addGui.AddText(, "Shortcut combination:")
-    editHotkey := addGui.Add("Edit", "w300 vcustomHotkey ReadOnly")
-    btnCapture := addGui.Add("Button", "y+10 w300", "Capture combination")
+    addGui.AddText("w300 c0x666666", "Supported modifiers: Ctrl, Shift, Alt")
+    editHotkey := addGui.Add("Edit", "w300 vcustomHotkey ReadOnly", "Press the combination...")
+    btnCapture := addGui.Add("Button", "y+10 w300", "Re-capture combination")
     btnSave := addGui.Add("Button", "x13 y+10 w145", "Save")
     btnCancel := addGui.Add("Button", "x+10 yp w144", "Cancel")
     addGui.AddText("xm y+0", "")
@@ -787,6 +860,9 @@ AddHotkey(*) {
     btnCancel.OnEvent("Click", (*) => addGui.Destroy())
 
     addGui.Show()
+    
+    ; Автоматически начинаем захват при открытии окна
+    CaptureHotkey()
 
     CaptureHotkey(*) {
         global g_Capturing, g_EditHotkey, g_Captured
@@ -808,17 +884,22 @@ AddHotkey(*) {
         }
         normCustom := NormalizeHotkey(hotkey)
         if (normCustom = "") {
-            MsgBox "Ошибка: Пустой хоткей!"
+            MsgBox "Error: Empty hotkey!"
             editHotkey.Value := ""
             return
         }
         if (normCustom = "__MULTIKEY_ERROR__") {
-            MsgBox "Ошибка: В хоткее может быть только одна основная клавиша!"
+            MsgBox "Error: A hotkey can only contain one main key!"
             editHotkey.Value := ""
             return
         }
         if (normCustom = "__INVALID_KEY__") {
-            MsgBox "Ошибка: Основная клавиша недопустима для хоткея! Используйте букву, цифру, F1–F24 или спецклавишу."
+            MsgBox "Error: Invalid main key for hotkey! Use a letter, digit, F1-F24 or special key."
+            editHotkey.Value := ""
+            return
+        }
+        if (normCustom = "__REQUIRES_MODIFIER__") {
+            MsgBox "Error: This key requires a modifier (Ctrl, Shift, or Alt) to be used as a hotkey!"
             editHotkey.Value := ""
             return
         }
@@ -882,8 +963,9 @@ ShowHotkeyEditor(cmd, custom) {
     addGui.AddText(, "Command:")
     txtCmd := addGui.Add("Edit", "w300 ReadOnly", cmd)
     addGui.AddText(, "Shortcut combination:")
-    editHotkey := addGui.Add("Edit", "w300 vcustomHotkey ReadOnly", custom)
-    btnCapture := addGui.Add("Button", "y+10 w300", "Capture combination")
+    addGui.AddText("w300 c0x666666", "Supported modifiers: Ctrl, Shift, Alt")
+    editHotkey := addGui.Add("Edit", "w300 vcustomHotkey ReadOnly", "Press the combination...")
+    btnCapture := addGui.Add("Button", "y+10 w300", "Re-capture combination")
     btnSave := addGui.Add("Button", "x13 y+10 w145", "Save")
     btnCancel := addGui.Add("Button", "x+10 yp w144", "Cancel")
     addGui.AddText("xm y+0", "")
@@ -895,6 +977,9 @@ ShowHotkeyEditor(cmd, custom) {
     btnCancel.OnEvent("Click", (*) => addGui.Destroy())
 
     addGui.Show()
+    
+    ; Автоматически начинаем захват при открытии окна
+    CaptureHotkey()
 
     CaptureHotkey(*) {
         global g_Capturing, g_EditHotkey, g_Captured
@@ -915,17 +1000,22 @@ ShowHotkeyEditor(cmd, custom) {
         }
         normCustom := NormalizeHotkey(hotkey)
         if (normCustom = "") {
-            MsgBox "Ошибка: Пустой хоткей!"
+            MsgBox "Error: Empty hotkey!"
             editHotkey.Value := ""
             return
         }
         if (normCustom = "__MULTIKEY_ERROR__") {
-            MsgBox "Ошибка: В хоткее может быть только одна основная клавиша!"
+            MsgBox "Error: A hotkey can only contain one main key!"
             editHotkey.Value := ""
             return
         }
         if (normCustom = "__INVALID_KEY__") {
-            MsgBox "Ошибка: Основная клавиша недопустима для хоткея! Используйте букву, цифру, F1–F24 или спецклавишу."
+            MsgBox "Error: Invalid main key for hotkey! Use a letter, digit, F1-F24 or special key."
+            editHotkey.Value := ""
+            return
+        }
+        if (normCustom = "__REQUIRES_MODIFIER__") {
+            MsgBox "Error: This key requires a modifier (Ctrl, Shift, or Alt) to be used as a hotkey!"
             editHotkey.Value := ""
             return
         }
@@ -1002,8 +1092,17 @@ IsValidMainKey(key) {
         return true
     if (key ~= "^f([1-9]|1[0-9]|2[0-4])$")
         return true
-    valid := ["enter","tab","esc","escape","delete","home","end","pgup","pgdn","up","down","left","right","space","appskey","appkey","plus","-","[","]",",",".","/","\\"]
+    valid := ["enter","tab","esc","escape","delete","home","end","pgup","pgdn","up","down","left","right","space","plus","-","[","]",",",".","/","\\"]
     for _, v in valid
+        if (key = v)
+            return true
+    return false
+}
+
+RequiresModifier(key) {
+    ; Клавиши которые нельзя использовать без модификаторов
+    requiresMod := ["space","tab","enter","esc","escape","backspace"]
+    for _, v in requiresMod
         if (key = v)
             return true
     return false
@@ -1011,7 +1110,7 @@ IsValidMainKey(key) {
 
 RemoveDuplicates(arr) {
     ; Возвращает список модификаторов без дубликатов
-    ordered := ["ctrl", "alt", "shift", "win", "appskey"]
+    ordered := ["ctrl", "alt", "shift"]
     out := []
     for _, mod in ordered {
         for _, v in arr {
@@ -1026,7 +1125,7 @@ RemoveDuplicates(arr) {
 
 itemHasConflict(item) {
     hk := item.custom && item.custom != "" ? NormalizeHotkey(item.custom) : NormalizeHotkey(item.default)
-    if hk = "" || hk = "__MULTIKEY_ERROR__" || hk = "__INVALID_KEY__"
+    if hk = "" || hk = "__MULTIKEY_ERROR__" || hk = "__INVALID_KEY__" || hk = "__REQUIRES_MODIFIER__"
         return false
     global gCustomMap, gDefaultMap
     if item.custom && item.custom != "" {
@@ -1056,12 +1155,12 @@ BuildHotkeyMaps() {
     for _, it in gHotkeys {
         if it.custom && it.custom != "" {
             hk := NormalizeHotkey(it.custom)
-            if hk = "" || hk = "__MULTIKEY_ERROR__" || hk = "__INVALID_KEY__"
+            if hk = "" || hk = "__MULTIKEY_ERROR__" || hk = "__INVALID_KEY__" || hk = "__REQUIRES_MODIFIER__"
                 continue
             gCustomMap[hk] := gCustomMap.Has(hk) ? gCustomMap[hk] + 1 : 1
         } else {
             hk := NormalizeHotkey(it.default)
-            if hk = "" || hk = "__MULTIKEY_ERROR__" || hk = "__INVALID_KEY__"
+            if hk = "" || hk = "__MULTIKEY_ERROR__" || hk = "__INVALID_KEY__" || hk = "__REQUIRES_MODIFIER__"
                 continue
             gDefaultMap[hk] := gDefaultMap.Has(hk) ? gDefaultMap[hk] + 1 : 1
         }
@@ -1084,7 +1183,7 @@ HotkeyCheckDisplay(hk) {
     global gHotkeys, lastDefaultEdit
     norm := NormalizeHotkey(hk)
     if norm = "" || InStr(norm, "__") {
-        lastDefaultEdit.Value := "Not found"
+        lastDefaultEdit.Value := "No matches found"
         return
     }
 
@@ -1097,7 +1196,7 @@ HotkeyCheckDisplay(hk) {
     }
 
     ; Если кастомного совпадения нет — выводим сообщение об отсутствии соответствия
-    lastDefaultEdit.Value := "Нет соответствий"
+    lastDefaultEdit.Value := ""
 }
 
 ; --- Base64 декодер ---
