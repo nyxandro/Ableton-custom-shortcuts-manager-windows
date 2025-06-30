@@ -1,5 +1,8 @@
 #Requires AutoHotkey v2.0
 
+; --- Глобальные переменные ---
+mainGui := ""
+g_WindowVisible := true
 configFile := "AbletonHotkeys.ini"
 
 ; --- Установка иконки в трей ---
@@ -271,46 +274,92 @@ CreateTrayMenu() {
     A_TrayMenu.Add("Reload", (*) => Reload())
     A_TrayMenu.Add()
     A_TrayMenu.Add("Exit", (*) => ExitApp())
+    ; Настраиваем клик по трею - стандартный способ AutoHotkey
+    A_TrayMenu.Default := "Show/Hide window"
+    A_TrayMenu.ClickCount := 1
 }
 
 ToggleMainWindow() {
-    global mainGui
-    if mainGui.Visible
-        mainGui.Hide()
-    else
-        mainGui.Show()
+    global mainGui, g_WindowVisible
+    ; Дополнительная защита от ошибок
+    try {
+        if IsObject(mainGui) && mainGui.Hwnd {
+            ; Проверяем реальное состояние окна через Windows API
+            actuallyVisible := WinExist("ahk_id " . mainGui.Hwnd) && (WinGetMinMax("ahk_id " . mainGui.Hwnd) >= 0)
+            
+            if actuallyVisible {
+                mainGui.Hide()
+                g_WindowVisible := false
+            } else {
+                mainGui.Show()
+                g_WindowVisible := true
+            }
+        }
+    } catch as err {
+        ; В случае ошибки пытаемся просто показать окно
+        try {
+            if IsObject(mainGui) {
+                mainGui.Show()
+                g_WindowVisible := true
+            }
+        }
+    }
 }
 
 ; --- Переопределяем обработчик закрытия окна ---
-mainGui.OnEvent("Close", (*) => (
-    g_HideOnClose
-        ? mainGui.Hide()
-        : ExitApp()
-))
+mainGui.OnEvent("Close", CloseHandler)
+
+CloseHandler(*) {
+    global g_HideOnClose, g_WindowVisible
+    if g_HideOnClose {
+        mainGui.Hide()
+        g_WindowVisible := false
+    } else {
+        ExitApp()
+    }
+}
 
 ; --- Показываем окно или скрываем при запуске ---
 if g_StartMinimized {
     mainGui.Hide()
+    g_WindowVisible := false
 } else {
     mainGui.Show()
+    g_WindowVisible := true
 }
 
 CreateTrayMenu()
 
 ShowSettings(*) {
     global mainGui, g_HideOnClose, g_StartMinimized
-    settingsGui := Gui("+Owner" mainGui.Hwnd, "Settings")
-    settingsGui.SetFont("s10")
-    isAutoStart := IsAutoStartEnabled()
-    cbAutoStart := settingsGui.Add("CheckBox", "w320 vcbAutoStart", "Run with Windows")
-    cbAutoStart.Value := isAutoStart
-    cbHideOnClose := settingsGui.Add("CheckBox", "w320 vcbHideOnClose", "Hide to tray on close")
-    cbHideOnClose.Value := g_HideOnClose
-    cbStartMin := settingsGui.Add("CheckBox", "w320 vcbStartMinimized", "Start minimized to tray")
-    cbStartMin.Value := g_StartMinimized
-    btnSave := settingsGui.Add("Button", "w100 y+10", "Save")
-    btnSave.OnEvent("Click", (*) => SaveSettings(settingsGui, cbAutoStart, cbHideOnClose, cbStartMin))
-    settingsGui.Show("AutoSize Center")
+    try {
+        settingsGui := Gui("+Owner" mainGui.Hwnd, "Settings")
+        settingsGui.SetFont("s10")
+        isAutoStart := IsAutoStartEnabled()
+        cbAutoStart := settingsGui.Add("CheckBox", "w320 vcbAutoStart", "Run with Windows")
+        cbAutoStart.Value := isAutoStart
+        cbHideOnClose := settingsGui.Add("CheckBox", "w320 vcbHideOnClose", "Hide to tray on close")
+        cbHideOnClose.Value := g_HideOnClose
+        cbStartMin := settingsGui.Add("CheckBox", "w320 vcbStartMinimized", "Start minimized to tray")
+        cbStartMin.Value := g_StartMinimized
+        btnSave := settingsGui.Add("Button", "w100 y+10", "Save")
+        btnSave.OnEvent("Click", (*) => SaveSettings(settingsGui, cbAutoStart, cbHideOnClose, cbStartMin))
+        settingsGui.Show("AutoSize Center")
+    } catch as err {
+        ; В случае ошибки просто создаем обычное окно настроек
+        settingsGui := Gui(, "Settings")
+        settingsGui.SetFont("s10")
+        isAutoStart := IsAutoStartEnabled()
+        cbAutoStart := settingsGui.Add("CheckBox", "w320 vcbAutoStart", "Run with Windows")
+        cbAutoStart.Value := isAutoStart
+        cbHideOnClose := settingsGui.Add("CheckBox", "w320 vcbHideOnClose", "Hide to tray on close")
+        cbHideOnClose.Value := g_HideOnClose
+        cbStartMin := settingsGui.Add("CheckBox", "w320 vcbStartMinimized", "Start minimized to tray")
+        cbStartMin.Value := g_StartMinimized
+        btnSave := settingsGui.Add("Button", "w100 y+10", "Save")
+        btnSave.OnEvent("Click", (*) => SaveSettings(settingsGui, cbAutoStart, cbHideOnClose, cbStartMin))
+        settingsGui.Show("AutoSize Center")
+    }
 }
 
 SaveSettings(settingsGui, cbAutoStart, cbHideOnClose, cbStartMin) {
@@ -333,19 +382,32 @@ SaveSettings(settingsGui, cbAutoStart, cbHideOnClose, cbStartMin) {
 }
 
 ShowAbout(*) {
-    aboutGui := Gui("+Owner" mainGui.Hwnd, "About")
-    aboutGui.SetFont("s10")
-    aboutGui.Add("Text", "xm ym", "Ableton Live Shortcuts V0.2")
-    aboutGui.Add("Text", "xm", "2025")
-    ; --- Ссылка внизу ---
-link := aboutGui.Add("Text", "xm Center cBlue", "by @abletonliveusers")
-link.SetFont("underline")
-link.OnEvent("Click", (*) => Run("https://t.me/abletonliveusers"))
-
-UpdateStatus()
-    aboutGui.Add("Text", "xm", "Created using AI")
-    aboutGui.Add("Button", "xm y+10 w320", "Close").OnEvent("Click", (*) => aboutGui.Destroy())
-    aboutGui.Show("AutoSize Center")
+    try {
+        aboutGui := Gui("+Owner" mainGui.Hwnd, "About")
+        aboutGui.SetFont("s10")
+        aboutGui.Add("Text", "xm ym", "Ableton Live Shortcuts V0.2.1")
+        aboutGui.Add("Text", "xm", "2025")
+        ; --- Ссылка внизу ---
+        link := aboutGui.Add("Text", "xm Center cBlue", "by @abletonliveusers")
+        link.SetFont("underline")
+        link.OnEvent("Click", (*) => Run("https://t.me/abletonliveusers"))
+        aboutGui.Add("Text", "xm", "Created using AI")
+        aboutGui.Add("Button", "xm y+10 w320", "Close").OnEvent("Click", (*) => aboutGui.Destroy())
+        aboutGui.Show("AutoSize Center")
+    } catch as err {
+        ; В случае ошибки создаем обычное окно
+        aboutGui := Gui(, "About")
+        aboutGui.SetFont("s10")
+        aboutGui.Add("Text", "xm ym", "Ableton Live Shortcuts V0.2.1")
+        aboutGui.Add("Text", "xm", "2025")
+        ; --- Ссылка внизу ---
+        link := aboutGui.Add("Text", "xm Center cBlue", "by @abletonliveusers")
+        link.SetFont("underline")
+        link.OnEvent("Click", (*) => Run("https://t.me/abletonliveusers"))
+        aboutGui.Add("Text", "xm", "Created using AI")
+        aboutGui.Add("Button", "xm y+10 w320", "Close").OnEvent("Click", (*) => aboutGui.Destroy())
+        aboutGui.Show("AutoSize Center")
+    }
 }
 
 NormalizeKey(key) {
@@ -589,19 +651,17 @@ ShowList()
 
 ; После показа окна — корректируем координаты
 Sleep 50 ; небольшой таймаут для корректного расчёта позиций
-{
-    x := y := w := h := 0
-    gbCheck.GetPos(&x, &y, &w, &h)
-    lastCustomEdit.Move(x + 15, y + 30)
-    arrow.Move(x + 258, y + 34)
-    lastDefaultEdit.Move(x + 290, y + 30)
-    btnCheckCapture.GetPos(&gx, &gy, &gw, &gh)
-    btnCheckCapture.Move(gx + 40, gy - 55, gw, gh)
-    ; Создаем ссылку внизу после всех манипуляций с позициями
-    linkTelegram := mainGui.Add("Text", Format("x{} y{} w{} h20 cBlue", x, y + h + 10, w), "by: @abletonliveusers - community in telegram")
-    linkTelegram.SetFont("s10 underline")
-    linkTelegram.OnEvent("Click", (*) => Run("https://t.me/abletonliveusers"))
-}
+x := y := w := h := 0
+gbCheck.GetPos(&x, &y, &w, &h)
+lastCustomEdit.Move(x + 15, y + 30)
+arrow.Move(x + 258, y + 34)
+lastDefaultEdit.Move(x + 290, y + 30)
+btnCheckCapture.GetPos(&gx, &gy, &gw, &gh)
+btnCheckCapture.Move(gx + 40, gy - 55, gw, gh)
+; Создаем ссылку внизу после всех манипуляций с позициями
+linkTelegram := mainGui.Add("Text", Format("x{} y{} w{} h20 cBlue", x, y + h + 10, w), "by: @abletonliveusers - community in telegram")
+linkTelegram.SetFont("s10 underline")
+linkTelegram.OnEvent("Click", (*) => Run("https://t.me/abletonliveusers"))
 
 ; --- Остальной код (AddHotkey, EditHotkey, DeleteHotkey, RegisterAllCustomHotkeys и т.д.) должен быть ниже, как реализовано ранее ---
 
@@ -646,9 +706,7 @@ SendDefaultHotkey(def) {
 global g_SendingHotkey := false
 
 MakeHotkeyHandler(custom, def) {
-    return (*) => (
-        HandleCustomHotkey(custom, def)
-    )
+    return (*) => HandleCustomHotkey(custom, def)
 }
 
 HandleCustomHotkey(custom, def) {
