@@ -3,7 +3,7 @@
 ; --- Глобальные переменные ---
 mainGui := ""
 g_WindowVisible := true
-configFile := "AbletonHotkeys.ini"
+configFile := "AbletonCSM.ini"
 
 ; --- Система локализации ---
 g_CurrentLanguage := ""
