@@ -57,7 +57,7 @@ Lang := Map(
         
         ; О программе
         "about_title", "About",
-        "about_version", "Ableton Custom Shortcuts Manager V0.3",
+        "about_version", "Ableton Custom Shortcuts Manager V0.3.1",
         "about_year", "2025",
         "about_link", "by @abletonliveusers - community in telegram",
         "about_created", "Created using AI",
@@ -134,7 +134,7 @@ Lang := Map(
         
         ; О программе
         "about_title", "О программе", 
-        "about_version", "Ableton Custom Shortcuts Manager V0.3",
+        "about_version", "Ableton Custom Shortcuts Manager V0.3.1",
         "about_year", "2025",
         "about_link", "by @abletonliveusers - сообщество в телеграм",
         "about_created", "Создано с помощью ИИ",
@@ -593,7 +593,7 @@ ShowSettings(*) {
 }
 
 SaveSettings(settingsGui, cbLanguage, cbAutoStart, cbHideOnClose, cbStartMin) {
-    startupLnk := A_Startup "\\AbletonHotkeyManager.lnk"
+    startupLnk := A_Startup "\\AbletonCustomShortcutsManager.lnk"
     scriptPath := A_ScriptFullPath
     
     ; Сохранение языка

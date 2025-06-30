@@ -75,7 +75,7 @@ Perfect for **Windows music producers**, **Ableton Live power users**, and anyon
 ### **Quick Installation Steps**
 1. **Download AutoHotkey v2.0.2+** and install it
 2. **Clone or download** this repository to your Windows PC
-3. **Double-click** `AbletonHotkeyManager.ahk` to launch
+3. **Double-click** `AbletonCustomShortcutsManager.ahk` to launch
 4. **Configure auto-start** via Settings → "Run with Windows" (optional)
 
 ### **First Launch Setup**
@@ -86,11 +86,11 @@ Perfect for **Windows music producers**, **Ableton Live power users**, and anyon
 ## 📁 Windows File Structure
 ```
 AbletonCustomShortcutsManager/
-├─ AbletonHotkeyManager.ahk   # Main Windows application
-├─ AbletonHotkeys.ini         # Your custom shortcuts config
-├─ app.ico                    # Windows tray icon
-├─ Changelog.txt              # Version history
-└─ README.md                  # This documentation
+├─ AbletonCustomShortcutsManager.ahk   # Main Windows application
+├─ AbletonHotkeys.ini                  # Your custom shortcuts config
+├─ app.ico                             # Windows tray icon
+├─ Changelog.txt                       # Version history
+└─ README.md                           # This documentation
 ```
 
 ## 🎯 How to Use This Windows Shortcuts Manager

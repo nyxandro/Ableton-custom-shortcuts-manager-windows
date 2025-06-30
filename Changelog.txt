@@ -4,6 +4,27 @@
 
 ---
 
+## v0.3.1 - File Structure Optimization & SEO Enhancement
+**Release Date**: January 2025
+
+### 📁 **File Structure Updates**
+- **Renamed main script** from `AbletonHotkeyManager.ahk` to `AbletonCustomShortcutsManager.ahk`
+- **Updated startup shortcut** name to match new file structure
+- **Improved file naming consistency** for better project organization
+- **Enhanced SEO optimization** with keyword-focused naming
+
+### 🔧 **Technical Improvements**
+- **Consistent branding** across all project files
+- **Better project discoverability** with descriptive file names
+- **Maintained backward compatibility** with existing configurations
+
+### 🎯 **Benefits for Users**
+- **Clearer project identity** - file names match the tool's purpose
+- **Easier installation** - more descriptive main executable name
+- **Professional presentation** - consistent naming throughout
+
+---
+
 ## v0.3 - Multi-Language Support & Enhanced Windows Integration
 **Release Date**: January 2025
 
