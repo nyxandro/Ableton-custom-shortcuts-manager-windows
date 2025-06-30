@@ -1,7 +1,7 @@
-# Ableton Hotkey Manager
+# Ableton custom shortcuts manager for Windows
 
 ## Overview
-Ableton Hotkey Manager is a lightweight AutoHotkey v2.0.2+ utility that lets you **override Ableton Live's default keyboard shortcuts with your own custom combinations** while keeping the original shortcuts one keystroke away.  
+Ableton custom shortcuts manager for Windows is a lightweight AutoHotkey v2.0.2+ utility that lets you **override Ableton Live's default keyboard shortcuts with your own custom combinations** while keeping the original shortcuts one keystroke away.  
 The script stays in the system tray, automatically activates when an Ableton Live 12 window is focused, and falls back to idle when Live is not running.
 
 ## Main Features
