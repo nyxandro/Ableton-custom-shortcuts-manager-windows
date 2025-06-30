@@ -5,6 +5,214 @@ mainGui := ""
 g_WindowVisible := true
 configFile := "AbletonHotkeys.ini"
 
+; --- Система локализации ---
+g_CurrentLanguage := ""
+
+; Словарь переводов
+Lang := Map(
+    "en", Map(
+        ; Основное окно
+        "window_title", "Ableton Live Users - Live Shortcuts",
+        "status_found", "Ableton Live window found — shortcuts are working",
+        "status_not_found", "Ableton Live window not found",
+        
+        ; Заголовки колонок
+        "column_command", "Command",
+        "column_key", "Key", 
+        "column_custom_key", "Custom Key",
+        "column_conflict", "Conflict",
+        
+        ; Кнопки и элементы управления
+        "search_placeholder", "Search by command",
+        "btn_assigned_only", "Assigned only",
+        "btn_show_all", "Show all",
+        "btn_conflict_only", "Conflict only", 
+        "btn_add", "➕ Add",
+        "btn_delete", "🗑 Delete",
+        "btn_reset_all", "❌ Reset All",
+        "btn_capture", "Capture",
+        "btn_settings", "Settings",
+        "btn_about", "About",
+        
+        ; Группа проверки хоткеев
+        "group_shortcut_check", "Shortcut check",
+        
+        ; Диалоги добавления/редактирования
+        "dialog_add_title", "Add",
+        "dialog_edit_title", "Edit Shortcut",
+        "label_command", "Command:",
+        "label_shortcut", "Shortcut combination:",
+        "hint_modifiers", "Supported modifiers: Ctrl, Shift, Alt",
+        "placeholder_press", "Press the combination...",
+        "btn_recapture", "Re-capture combination",
+        "btn_save", "Save",
+        "btn_cancel", "Cancel",
+        
+        ; Настройки
+        "settings_title", "Settings",
+        "settings_language", "Language:",
+        "settings_autostart", "Run with Windows",
+        "settings_hide_on_close", "Hide to tray on close", 
+        "settings_start_minimized", "Start minimized to tray",
+        
+        ; О программе
+        "about_title", "About",
+        "about_version", "Ableton Live Shortcuts V0.3",
+        "about_year", "2025",
+        "about_link", "by @abletonliveusers - community in telegram",
+        "about_created", "Created using AI",
+        "btn_close", "Close",
+        
+        ; Сообщения об ошибках
+        "error_empty_hotkey", "Error: Empty hotkey!",
+        "error_multikey", "Error: A hotkey can only contain one main key!",
+        "error_invalid_key", "Error: Invalid main key for hotkey! Use a letter, digit, F1-F24 or special key.",
+        "error_requires_modifier", "Error: This key requires a modifier (Ctrl, Shift, or Alt) to be used as a hotkey!",
+        "error_same_as_default", "Custom shortcut cannot be the same as the default shortcut for this command!",
+        "error_already_assigned", "This shortcut is already assigned to another command! Please choose a unique combination.",
+        "error_select_command", "Select a command and enter a key combination!",
+        "error_enter_combination", "Enter a key combination!",
+        "error_select_row", "Select a row to delete!",
+        
+        ; Подтверждения
+        "confirm_delete_all", "Do you really want to delete all custom hotkeys?",
+        "confirm_title", "Confirmation",
+        
+        ; Результаты поиска
+        "no_matches", "No matches found",
+        
+        ; Конфликты
+        "conflict_with", "Conflict with:",
+        "conflict_custom", "custom",
+        "conflict_default", "default"
+    ),
+    
+    "ru", Map(
+        ; Основное окно
+        "window_title", "Ableton Live Users - Горячие клавиши",
+        "status_found", "Окно Ableton Live найдено — горячие клавиши работают",
+        "status_not_found", "Окно Ableton Live не найдено",
+        
+        ; Заголовки колонок
+        "column_command", "Команда",
+        "column_key", "Клавиша",
+        "column_custom_key", "Своя клавиша", 
+        "column_conflict", "Конфликт",
+        
+        ; Кнопки и элементы управления
+        "search_placeholder", "Поиск по команде",
+        "btn_assigned_only", "Только назначенные",
+        "btn_show_all", "Показать все",
+        "btn_conflict_only", "Только конфликты",
+        "btn_add", "➕ Добавить",
+        "btn_delete", "🗑 Удалить", 
+        "btn_reset_all", "❌ Сбросить все",
+        "btn_capture", "Захватить",
+        "btn_settings", "Настройки",
+        "btn_about", "О программе",
+        
+        ; Группа проверки хоткеев
+        "group_shortcut_check", "Проверка сочетаний",
+        
+        ; Диалоги добавления/редактирования
+        "dialog_add_title", "Добавить",
+        "dialog_edit_title", "Редактировать горячую клавишу",
+        "label_command", "Команда:",
+        "label_shortcut", "Сочетание клавиш:",
+        "hint_modifiers", "Поддерживаемые модификаторы: Ctrl, Shift, Alt",
+        "placeholder_press", "Нажмите сочетание...",
+        "btn_recapture", "Перезахватить сочетание",
+        "btn_save", "Сохранить",
+        "btn_cancel", "Отмена",
+        
+        ; Настройки
+        "settings_title", "Настройки",
+        "settings_language", "Язык:",
+        "settings_autostart", "Запускать с Windows",
+        "settings_hide_on_close", "Скрывать в трей при закрытии",
+        "settings_start_minimized", "Запускать свернутым в трей",
+        
+        ; О программе
+        "about_title", "О программе", 
+        "about_version", "Ableton Live Shortcuts V0.2.1",
+        "about_year", "2025",
+        "about_link", "by @abletonliveusers - сообщество в телеграм",
+        "about_created", "Создано с помощью ИИ",
+        "btn_close", "Закрыть",
+        
+        ; Сообщения об ошибках
+        "error_empty_hotkey", "Ошибка: Пустая горячая клавиша!",
+        "error_multikey", "Ошибка: Горячая клавиша может содержать только одну основную клавишу!",
+        "error_invalid_key", "Ошибка: Недопустимая основная клавиша! Используйте букву, цифру, F1-F24 или специальную клавишу.",
+        "error_requires_modifier", "Ошибка: Эта клавиша требует модификатор (Ctrl, Shift или Alt) для использования в качестве горячей клавиши!",
+        "error_same_as_default", "Пользовательская горячая клавиша не может совпадать со стандартной для этой команды!",
+        "error_already_assigned", "Это сочетание уже назначено другой команде! Выберите уникальное сочетание.",
+        "error_select_command", "Выберите команду и введите сочетание клавиш!",
+        "error_enter_combination", "Введите сочетание клавиш!",
+        "error_select_row", "Выберите строку для удаления!",
+        
+        ; Подтверждения
+        "confirm_delete_all", "Вы действительно хотите удалить все пользовательские горячие клавиши?",
+        "confirm_title", "Подтверждение",
+        
+        ; Результаты поиска
+        "no_matches", "Совпадений не найдено",
+        
+        ; Конфликты
+        "conflict_with", "Конфликт с:",
+        "conflict_custom", "пользовательская",
+        "conflict_default", "стандартная"
+    )
+)
+
+; Функция получения текста по ключу
+GetLangText(key) {
+    global g_CurrentLanguage, Lang
+    if Lang.Has(g_CurrentLanguage) && Lang[g_CurrentLanguage].Has(key) {
+        return Lang[g_CurrentLanguage][key]
+    }
+    ; Если перевод не найден, возвращаем английский вариант
+    if Lang.Has("en") && Lang["en"].Has(key) {
+        return Lang["en"][key]
+    }
+    ; Если и английского нет, возвращаем сам ключ
+    return key
+}
+
+; Загрузка языка из настроек
+LoadLanguage() {
+    global g_CurrentLanguage, configFile
+    g_CurrentLanguage := IniRead(configFile, "Settings", "Language", "en")
+    ; Проверяем, что язык поддерживается
+    if !Lang.Has(g_CurrentLanguage) {
+        g_CurrentLanguage := "en"
+    }
+}
+
+; Сохранение языка в настройки
+SaveLanguage(language) {
+    global g_CurrentLanguage, configFile
+    g_CurrentLanguage := language
+    IniWrite(language, configFile, "Settings", "Language")
+}
+
+; Функция обновления интерфейса при смене языка
+UpdateInterface() {
+    global mainGui, btnAssignedOnly, btnConfOnly, assignedOnlyMode, conflictOnlyMode
+    ; Обновляем заголовок окна
+    mainGui.Title := GetLangText("window_title")
+    ; Обновляем кнопки фильтрации
+    btnAssignedOnly.Text := assignedOnlyMode ? GetLangText("btn_show_all") : GetLangText("btn_assigned_only")
+    btnConfOnly.Text := conflictOnlyMode ? GetLangText("btn_show_all") : GetLangText("btn_conflict_only")
+    ; Обновляем меню трея
+    CreateTrayMenu()
+    ; Обновляем статус
+    UpdateStatus()
+}
+
+; Инициализация языка
+LoadLanguage()
+
 ; --- Установка иконки в трей ---
 if A_IsCompiled {
     TraySetIcon(A_ScriptFullPath) ; Используем иконку встроенную в EXE
@@ -156,7 +364,7 @@ ReloadCustomHotkeys() {
     }
 }
 
-mainGui := Gui(, "Ableton Live Users - Live Shortcuts")
+mainGui := Gui(, GetLangText("window_title"))
 mainGui.SetFont("s10")
 
 ; --- Список поддерживаемых окон Ableton ---
@@ -172,7 +380,7 @@ gAbletonWindowList := [
 ; --- Статус-индикатор ---
 mainGui.Add("Text", "xm y10") ; отступ сверху
 statusColor := "Red"
-statusText := "Ableton Live window not found"
+statusText := GetLangText("status_not_found")
 statusBars := []
 statusBarsH := []
 statusLabel := ""
@@ -207,19 +415,19 @@ statusLabel := mainGui.Add("Text", Format("x{} y{} w500 h20 vstatusLabel Backgro
 mainGui.Add("Text", "xm y+15 w700 0x10") ; горизонтальный разделитель
 
 ; --- Меню ---
-mainGui.Add("Text", "xm y+0 h20", "Search by command")
+mainGui.Add("Text", "xm y+0 h20", GetLangText("search_placeholder"))
 searchEdit := mainGui.Add("Edit", "w350 vsearchEdit y+0")
 searchEdit.OnEvent("Change", FilterList)
-btnAssignedOnly := mainGui.Add("Button", "x+10 yp w160", "Assigned only")
+btnAssignedOnly := mainGui.Add("Button", "x+10 yp w160", GetLangText("btn_assigned_only"))
 assignedOnlyMode := false
 btnAssignedOnly.OnEvent("Click", ToggleAssignedOnly)
 
 ; --- Кнопка показа только конфликтов ---
-btnConfOnly := mainGui.Add("Button", "x+10 yp w160", "Conflict only")
+btnConfOnly := mainGui.Add("Button", "x+10 yp w160", GetLangText("btn_conflict_only"))
 conflictOnlyMode := false
 btnConfOnly.OnEvent("Click", ToggleConflictOnly)
 
-lv := mainGui.Add("ListView", "xm y+10 w700 r20", ["Command", "Key", "Custom Key", "Conflict"])
+lv := mainGui.Add("ListView", "xm y+10 w700 r20", [GetLangText("column_command"), GetLangText("column_key"), GetLangText("column_custom_key"), GetLangText("column_conflict")])
 lv.OnEvent("DoubleClick", EditHotkey)
 lv.OnEvent("Click", OnListViewClick)
 ; lv.OnEvent("ItemSelect", OnRowSelect) ; отключено – больше не обновляет поля при выборе строки
@@ -230,27 +438,27 @@ lv.ModifyCol(4, 60)  ; Conflict
 
 ; Кнопки управления внизу окна
 mainGui.Add("Text", "y+0") ; отступ перед нижними кнопками
-btnAdd := mainGui.Add("Button", "x12 y+0 w100", "➕ Add")
+btnAdd := mainGui.Add("Button", "x12 y+0 w100", GetLangText("btn_add"))
 btnAdd.OnEvent("Click", AddHotkey)
-btnDel := mainGui.Add("Button", "x+10 w120", "🗑 Delete")
+btnDel := mainGui.Add("Button", "x+10 w120", GetLangText("btn_delete"))
 btnDel.OnEvent("Click", DeleteHotkey)
-btnDelAll := mainGui.Add("Button", "x+10 w130", "❌ Reset All")
+btnDelAll := mainGui.Add("Button", "x+10 w130", GetLangText("btn_reset_all"))
 btnDelAll.OnEvent("Click", DeleteAllHotkeys)
 
 ; --- Группа для проверки хоткеев ---
-gbCheck := mainGui.Add("GroupBox", "xm y+10 w700 h70", "Shortcut check")
+gbCheck := mainGui.Add("GroupBox", "xm y+10 w700 h70", GetLangText("group_shortcut_check"))
 lastCustomEdit := mainGui.Add("Edit", "x20 y+0 w230 ReadOnly vlastCustomEdit", "")
 arrow := mainGui.Add("Text", "x+10 yp+0 w20 Center", "→")
 lastDefaultEdit := mainGui.Add("Edit", "x+0 y+0 w230 ReadOnly vlastDefaultEdit", "")
-btnCheckCapture := mainGui.Add("Button", "x+10 yp-3 w120", "Capture")
+btnCheckCapture := mainGui.Add("Button", "x+10 yp-3 w120", GetLangText("btn_capture"))
 btnCheckCapture.OnEvent("Click", StartCheckCapture)
 
 ; --- Кнопка настроек в правом верхнем углу ---
-btnSettings := mainGui.Add("Button", "x500 y10 w100 h25", "Settings")
+btnSettings := mainGui.Add("Button", "x500 y10 w100 h25", GetLangText("btn_settings"))
 btnSettings.OnEvent("Click", ShowSettings)
 
 ; --- Кнопка About ---
-btnAbout := mainGui.Add("Button", "x+10 yp w100 h25", "About")
+btnAbout := mainGui.Add("Button", "x+10 yp w100 h25", GetLangText("btn_about"))
 btnAbout.OnEvent("Click", ShowAbout)
 
 ; --- Глобальные переменные для трея и настроек ---
@@ -269,13 +477,21 @@ LoadTraySettings()
 ; --- Создание меню трея ---
 CreateTrayMenu() {
     A_TrayMenu.Delete() ; очистить все пункты
-    A_TrayMenu.Add("Show/Hide window", (*) => ToggleMainWindow())
-    A_TrayMenu.Add()
-    A_TrayMenu.Add("Reload", (*) => Reload())
-    A_TrayMenu.Add()
-    A_TrayMenu.Add("Exit", (*) => ExitApp())
-    ; Настраиваем клик по трею - стандартный способ AutoHotkey
-    A_TrayMenu.Default := "Show/Hide window"
+    if g_CurrentLanguage = "ru" {
+        A_TrayMenu.Add("Показать/Скрыть окно", (*) => ToggleMainWindow())
+        A_TrayMenu.Add()
+        A_TrayMenu.Add("Перезагрузить", (*) => Reload())
+        A_TrayMenu.Add()
+        A_TrayMenu.Add("Выход", (*) => ExitApp())
+        A_TrayMenu.Default := "Показать/Скрыть окно"
+    } else {
+        A_TrayMenu.Add("Show/Hide window", (*) => ToggleMainWindow())
+        A_TrayMenu.Add()
+        A_TrayMenu.Add("Reload", (*) => Reload())
+        A_TrayMenu.Add()
+        A_TrayMenu.Add("Exit", (*) => ExitApp())
+        A_TrayMenu.Default := "Show/Hide window"
+    }
     A_TrayMenu.ClickCount := 1
 }
 
@@ -331,40 +547,67 @@ if g_StartMinimized {
 CreateTrayMenu()
 
 ShowSettings(*) {
-    global mainGui, g_HideOnClose, g_StartMinimized
+    global mainGui, g_HideOnClose, g_StartMinimized, g_CurrentLanguage
     try {
-        settingsGui := Gui("+Owner" mainGui.Hwnd, "Settings")
+        settingsGui := Gui("+Owner" mainGui.Hwnd, GetLangText("settings_title"))
         settingsGui.SetFont("s10")
+        
+        ; Выбор языка
+        settingsGui.Add("Text", "xm ym", GetLangText("settings_language"))
+        cbLanguage := settingsGui.Add("ComboBox", "w320 vcbLanguage")
+        cbLanguage.Add(["English", "Русский"])
+        cbLanguage.Value := g_CurrentLanguage = "ru" ? 2 : 1
+        
         isAutoStart := IsAutoStartEnabled()
-        cbAutoStart := settingsGui.Add("CheckBox", "w320 vcbAutoStart", "Run with Windows")
+        cbAutoStart := settingsGui.Add("CheckBox", "w320 vcbAutoStart", GetLangText("settings_autostart"))
         cbAutoStart.Value := isAutoStart
-        cbHideOnClose := settingsGui.Add("CheckBox", "w320 vcbHideOnClose", "Hide to tray on close")
+        cbHideOnClose := settingsGui.Add("CheckBox", "w320 vcbHideOnClose", GetLangText("settings_hide_on_close"))
         cbHideOnClose.Value := g_HideOnClose
-        cbStartMin := settingsGui.Add("CheckBox", "w320 vcbStartMinimized", "Start minimized to tray")
+        cbStartMin := settingsGui.Add("CheckBox", "w320 vcbStartMinimized", GetLangText("settings_start_minimized"))
         cbStartMin.Value := g_StartMinimized
-        btnSave := settingsGui.Add("Button", "w100 y+10", "Save")
-        btnSave.OnEvent("Click", (*) => SaveSettings(settingsGui, cbAutoStart, cbHideOnClose, cbStartMin))
+        btnSave := settingsGui.Add("Button", "w100 y+10", GetLangText("btn_save"))
+        btnSave.OnEvent("Click", (*) => SaveSettings(settingsGui, cbLanguage, cbAutoStart, cbHideOnClose, cbStartMin))
         settingsGui.Show("AutoSize Center")
     } catch as err {
         ; В случае ошибки просто создаем обычное окно настроек
-        settingsGui := Gui(, "Settings")
+        settingsGui := Gui(, GetLangText("settings_title"))
         settingsGui.SetFont("s10")
+        
+        ; Выбор языка
+        settingsGui.Add("Text", "xm ym", GetLangText("settings_language"))
+        cbLanguage := settingsGui.Add("ComboBox", "w320 vcbLanguage")
+        cbLanguage.Add(["English", "Русский"])
+        cbLanguage.Value := g_CurrentLanguage = "ru" ? 2 : 1
+        
         isAutoStart := IsAutoStartEnabled()
-        cbAutoStart := settingsGui.Add("CheckBox", "w320 vcbAutoStart", "Run with Windows")
+        cbAutoStart := settingsGui.Add("CheckBox", "w320 vcbAutoStart", GetLangText("settings_autostart"))
         cbAutoStart.Value := isAutoStart
-        cbHideOnClose := settingsGui.Add("CheckBox", "w320 vcbHideOnClose", "Hide to tray on close")
+        cbHideOnClose := settingsGui.Add("CheckBox", "w320 vcbHideOnClose", GetLangText("settings_hide_on_close"))
         cbHideOnClose.Value := g_HideOnClose
-        cbStartMin := settingsGui.Add("CheckBox", "w320 vcbStartMinimized", "Start minimized to tray")
+        cbStartMin := settingsGui.Add("CheckBox", "w320 vcbStartMinimized", GetLangText("settings_start_minimized"))
         cbStartMin.Value := g_StartMinimized
-        btnSave := settingsGui.Add("Button", "w100 y+10", "Save")
-        btnSave.OnEvent("Click", (*) => SaveSettings(settingsGui, cbAutoStart, cbHideOnClose, cbStartMin))
+        btnSave := settingsGui.Add("Button", "w100 y+10", GetLangText("btn_save"))
+        btnSave.OnEvent("Click", (*) => SaveSettings(settingsGui, cbLanguage, cbAutoStart, cbHideOnClose, cbStartMin))
         settingsGui.Show("AutoSize Center")
     }
 }
 
-SaveSettings(settingsGui, cbAutoStart, cbHideOnClose, cbStartMin) {
+SaveSettings(settingsGui, cbLanguage, cbAutoStart, cbHideOnClose, cbStartMin) {
     startupLnk := A_Startup "\\AbletonHotkeyManager.lnk"
     scriptPath := A_ScriptFullPath
+    
+    ; Сохранение языка
+    newLanguage := cbLanguage.Value = 2 ? "ru" : "en"
+    if newLanguage != g_CurrentLanguage {
+        SaveLanguage(newLanguage)
+        ; Предупреждение о необходимости перезапуска
+        if g_CurrentLanguage = "ru" {
+            MsgBox("Для применения изменений языка требуется перезапуск приложения.", "Изменение языка", "OK Icon!")
+        } else {
+            MsgBox("Application restart is required to apply language changes.", "Language Change", "OK Icon!")
+        }
+    }
+    
     autoStart := cbAutoStart.Value ? 1 : 0
     hideOnClose := cbHideOnClose.Value ? 1 : 0
     startMin := cbStartMin.Value ? 1 : 0
@@ -383,29 +626,29 @@ SaveSettings(settingsGui, cbAutoStart, cbHideOnClose, cbStartMin) {
 
 ShowAbout(*) {
     try {
-        aboutGui := Gui("+Owner" mainGui.Hwnd, "About")
+        aboutGui := Gui("+Owner" mainGui.Hwnd, GetLangText("about_title"))
         aboutGui.SetFont("s10")
-        aboutGui.Add("Text", "xm ym", "Ableton Live Shortcuts V0.2.1")
-        aboutGui.Add("Text", "xm", "2025")
+        aboutGui.Add("Text", "xm ym", GetLangText("about_version"))
+        aboutGui.Add("Text", "xm", GetLangText("about_year"))
         ; --- Ссылка внизу ---
-        link := aboutGui.Add("Text", "xm Center cBlue", "by @abletonliveusers")
+        link := aboutGui.Add("Text", "xm Center cBlue", GetLangText("about_link"))
         link.SetFont("underline")
         link.OnEvent("Click", (*) => Run("https://t.me/abletonliveusers"))
-        aboutGui.Add("Text", "xm", "Created using AI")
-        aboutGui.Add("Button", "xm y+10 w320", "Close").OnEvent("Click", (*) => aboutGui.Destroy())
+        aboutGui.Add("Text", "xm", GetLangText("about_created"))
+        aboutGui.Add("Button", "xm y+10 w320", GetLangText("btn_close")).OnEvent("Click", (*) => aboutGui.Destroy())
         aboutGui.Show("AutoSize Center")
     } catch as err {
         ; В случае ошибки создаем обычное окно
-        aboutGui := Gui(, "About")
+        aboutGui := Gui(, GetLangText("about_title"))
         aboutGui.SetFont("s10")
-        aboutGui.Add("Text", "xm ym", "Ableton Live Shortcuts V0.2.1")
-        aboutGui.Add("Text", "xm", "2025")
+        aboutGui.Add("Text", "xm ym", GetLangText("about_version"))
+        aboutGui.Add("Text", "xm", GetLangText("about_year"))
         ; --- Ссылка внизу ---
-        link := aboutGui.Add("Text", "xm Center cBlue", "by @abletonliveusers")
+        link := aboutGui.Add("Text", "xm Center cBlue", GetLangText("about_link"))
         link.SetFont("underline")
         link.OnEvent("Click", (*) => Run("https://t.me/abletonliveusers"))
-        aboutGui.Add("Text", "xm", "Created using AI")
-        aboutGui.Add("Button", "xm y+10 w320", "Close").OnEvent("Click", (*) => aboutGui.Destroy())
+        aboutGui.Add("Text", "xm", GetLangText("about_created"))
+        aboutGui.Add("Button", "xm y+10 w320", GetLangText("btn_close")).OnEvent("Click", (*) => aboutGui.Destroy())
         aboutGui.Show("AutoSize Center")
     }
 }
@@ -539,14 +782,14 @@ FilterList(*) {
 ToggleAssignedOnly(*) {
     global assignedOnlyMode
     assignedOnlyMode := !assignedOnlyMode
-    btnAssignedOnly.Text := assignedOnlyMode ? "Show all" : "Assigned only"
+    btnAssignedOnly.Text := assignedOnlyMode ? GetLangText("btn_show_all") : GetLangText("btn_assigned_only")
     FilterList()
 }
 
 ToggleConflictOnly(*) {
     global conflictOnlyMode
     conflictOnlyMode := !conflictOnlyMode
-    btnConfOnly.Text := conflictOnlyMode ? "Show all" : "Conflict only"
+    btnConfOnly.Text := conflictOnlyMode ? GetLangText("btn_show_all") : GetLangText("btn_conflict_only")
     FilterList()
 }
 
@@ -626,12 +869,12 @@ GetConflictInfo(currentCommand) {
         ; Проверяем конфликт с кастомным хоткеем
         if item.custom && item.custom != "" {
             if NormalizeHotkey(item.custom) = checkHotkey {
-                conflictingCommands.Push(item.command . " (custom: " . item.custom . ")")
+                conflictingCommands.Push(item.command . " (" . GetLangText("conflict_custom") . ": " . item.custom . ")")
             }
         } else {
             ; Проверяем конфликт с дефолтным хоткеем
             if NormalizeHotkey(item.default) = checkHotkey {
-                conflictingCommands.Push(item.command . " (default: " . item.default . ")")
+                conflictingCommands.Push(item.command . " (" . GetLangText("conflict_default") . ": " . item.default . ")")
             }
         }
     }
@@ -639,7 +882,7 @@ GetConflictInfo(currentCommand) {
     if conflictingCommands.Length = 0
         return ""
     
-    result := "Conflict with:`n"
+    result := GetLangText("conflict_with") . "`n"
     for _, conflictCmd in conflictingCommands {
         result .= "• " . conflictCmd . "`n"
     }
@@ -659,7 +902,7 @@ lastDefaultEdit.Move(x + 290, y + 30)
 btnCheckCapture.GetPos(&gx, &gy, &gw, &gh)
 btnCheckCapture.Move(gx + 40, gy - 55, gw, gh)
 ; Создаем ссылку внизу после всех манипуляций с позициями
-linkTelegram := mainGui.Add("Text", Format("x{} y{} w{} h20 cBlue", x, y + h + 10, w), "by: @abletonliveusers - community in telegram")
+linkTelegram := mainGui.Add("Text", Format("x{} y{} w{} h20 cBlue", x, y + h + 10, w), GetLangText("about_link"))
 linkTelegram.SetFont("s10 underline")
 linkTelegram.OnEvent("Click", (*) => Run("https://t.me/abletonliveusers"))
 
@@ -883,9 +1126,9 @@ AddHotkey(*) {
         selectedCommand := lv.GetText(selectedRow, 1)
     }
     
-    addGui := Gui(, "Add")
+    addGui := Gui(, GetLangText("dialog_add_title"))
     addGui.SetFont("s10")
-    addGui.AddText(, "Command:")
+    addGui.AddText(, GetLangText("label_command"))
     cbCmd := addGui.Add("ComboBox", "w300 vcmdName")
     cmds := []
     for item in gHotkeys
@@ -903,12 +1146,12 @@ AddHotkey(*) {
     } else {
         cbCmd.Choose(1)
     }
-    addGui.AddText(, "Shortcut combination:")
-    addGui.AddText("w300 c0x666666", "Supported modifiers: Ctrl, Shift, Alt")
-    editHotkey := addGui.Add("Edit", "w300 vcustomHotkey ReadOnly", "Press the combination...")
-    btnCapture := addGui.Add("Button", "y+10 w300", "Re-capture combination")
-    btnSave := addGui.Add("Button", "x13 y+10 w145", "Save")
-    btnCancel := addGui.Add("Button", "x+10 yp w144", "Cancel")
+    addGui.AddText(, GetLangText("label_shortcut"))
+    addGui.AddText("w300 c0x666666", GetLangText("hint_modifiers"))
+    editHotkey := addGui.Add("Edit", "w300 vcustomHotkey ReadOnly", GetLangText("placeholder_press"))
+    btnCapture := addGui.Add("Button", "y+10 w300", GetLangText("btn_recapture"))
+    btnSave := addGui.Add("Button", "x13 y+10 w145", GetLangText("btn_save"))
+    btnCancel := addGui.Add("Button", "x+10 yp w144", GetLangText("btn_cancel"))
     addGui.AddText("xm y+0", "")
     captured := ""
     capturing := false
@@ -927,7 +1170,7 @@ AddHotkey(*) {
         g_Capturing := true
         g_EditHotkey := editHotkey
         g_Captured := ""
-        editHotkey.Value := "Press the combination..."
+        editHotkey.Value := GetLangText("placeholder_press")
         OnMessage(0x100, WM_KEYDOWN)
         OnMessage(0x101, WM_KEYUP)
         OnMessage(0x104, WM_KEYDOWN) ; WM_SYSKEYDOWN for Alt
@@ -936,28 +1179,28 @@ AddHotkey(*) {
     SaveHotkey(*) {
         cmd := cbCmd.Text
         hotkey := editHotkey.Value
-        if !cmd || !hotkey || hotkey = "Press the combination..." {
-            MsgBox "Select a command and enter a key combination!"
+        if !cmd || !hotkey || hotkey = GetLangText("placeholder_press") {
+            MsgBox GetLangText("error_select_command")
             return
         }
         normCustom := NormalizeHotkey(hotkey)
         if (normCustom = "") {
-            MsgBox "Error: Empty hotkey!"
+            MsgBox GetLangText("error_empty_hotkey")
             editHotkey.Value := ""
             return
         }
         if (normCustom = "__MULTIKEY_ERROR__") {
-            MsgBox "Error: A hotkey can only contain one main key!"
+            MsgBox GetLangText("error_multikey")
             editHotkey.Value := ""
             return
         }
         if (normCustom = "__INVALID_KEY__") {
-            MsgBox "Error: Invalid main key for hotkey! Use a letter, digit, F1-F24 or special key."
+            MsgBox GetLangText("error_invalid_key")
             editHotkey.Value := ""
             return
         }
         if (normCustom = "__REQUIRES_MODIFIER__") {
-            MsgBox "Error: This key requires a modifier (Ctrl, Shift, or Alt) to be used as a hotkey!"
+            MsgBox GetLangText("error_requires_modifier")
             editHotkey.Value := ""
             return
         }
@@ -965,7 +1208,7 @@ AddHotkey(*) {
             if (item.command = cmd && item.default && item.default != "") {
                 normDefault := NormalizeHotkey(item.default)
                 if (normDefault = normCustom) {
-                    MsgBox "Custom shortcut cannot be the same as the default shortcut for this command!"
+                    MsgBox GetLangText("error_same_as_default")
                     editHotkey.Value := ""
                     return
                 }
@@ -973,7 +1216,7 @@ AddHotkey(*) {
         }
         for _, item in gHotkeys {
             if (item.custom && item.custom != "" && NormalizeHotkey(item.custom) = NormalizeHotkey(hotkey) && StrLower(item.command) != StrLower(cmd)) {
-                MsgBox "This shortcut is already assigned to another command! Please choose a unique combination."
+                MsgBox GetLangText("error_already_assigned")
                 editHotkey.Value := ""
                 return
             }
@@ -989,7 +1232,7 @@ AddHotkey(*) {
 DeleteHotkey(*) {
     row := lv.GetNext(0, "F")
     if !row {
-        MsgBox "Select a row to delete!"
+        MsgBox GetLangText("error_select_row")
         return
     }
     cmd := lv.GetText(row, 1)
@@ -1016,16 +1259,16 @@ EditHotkey(*) {
 
 ShowHotkeyEditor(cmd, custom) {
     static keyNames := Map("Ctrl", "Ctrl", "Shift", "Shift", "Alt", "Alt", "Tab", "Tab", "Space", "Space")
-    addGui := Gui(, "Edit Shortcut")
+    addGui := Gui(, GetLangText("dialog_edit_title"))
     addGui.SetFont("s10")
-    addGui.AddText(, "Command:")
+    addGui.AddText(, GetLangText("label_command"))
     txtCmd := addGui.Add("Edit", "w300 ReadOnly", cmd)
-    addGui.AddText(, "Shortcut combination:")
-    addGui.AddText("w300 c0x666666", "Supported modifiers: Ctrl, Shift, Alt")
-    editHotkey := addGui.Add("Edit", "w300 vcustomHotkey ReadOnly", "Press the combination...")
-    btnCapture := addGui.Add("Button", "y+10 w300", "Re-capture combination")
-    btnSave := addGui.Add("Button", "x13 y+10 w145", "Save")
-    btnCancel := addGui.Add("Button", "x+10 yp w144", "Cancel")
+    addGui.AddText(, GetLangText("label_shortcut"))
+    addGui.AddText("w300 c0x666666", GetLangText("hint_modifiers"))
+    editHotkey := addGui.Add("Edit", "w300 vcustomHotkey ReadOnly", GetLangText("placeholder_press"))
+    btnCapture := addGui.Add("Button", "y+10 w300", GetLangText("btn_recapture"))
+    btnSave := addGui.Add("Button", "x13 y+10 w145", GetLangText("btn_save"))
+    btnCancel := addGui.Add("Button", "x+10 yp w144", GetLangText("btn_cancel"))
     addGui.AddText("xm y+0", "")
     captured := custom
     capturing := false
@@ -1044,7 +1287,7 @@ ShowHotkeyEditor(cmd, custom) {
         g_Capturing := true
         g_EditHotkey := editHotkey
         g_Captured := custom
-        editHotkey.Value := "Press the combination..."
+        editHotkey.Value := GetLangText("placeholder_press")
         OnMessage(0x100, WM_KEYDOWN)
         OnMessage(0x101, WM_KEYUP)
         OnMessage(0x104, WM_KEYDOWN) ; WM_SYSKEYDOWN for Alt
@@ -1052,28 +1295,28 @@ ShowHotkeyEditor(cmd, custom) {
     }
     SaveHotkey(*) {
         hotkey := editHotkey.Value
-        if !hotkey || hotkey = "Press the combination..." {
-            MsgBox "Enter a key combination!"
+        if !hotkey || hotkey = GetLangText("placeholder_press") {
+            MsgBox GetLangText("error_enter_combination")
             return
         }
         normCustom := NormalizeHotkey(hotkey)
         if (normCustom = "") {
-            MsgBox "Error: Empty hotkey!"
+            MsgBox GetLangText("error_empty_hotkey")
             editHotkey.Value := ""
             return
         }
         if (normCustom = "__MULTIKEY_ERROR__") {
-            MsgBox "Error: A hotkey can only contain one main key!"
+            MsgBox GetLangText("error_multikey")
             editHotkey.Value := ""
             return
         }
         if (normCustom = "__INVALID_KEY__") {
-            MsgBox "Error: Invalid main key for hotkey! Use a letter, digit, F1-F24 or special key."
+            MsgBox GetLangText("error_invalid_key")
             editHotkey.Value := ""
             return
         }
         if (normCustom = "__REQUIRES_MODIFIER__") {
-            MsgBox "Error: This key requires a modifier (Ctrl, Shift, or Alt) to be used as a hotkey!"
+            MsgBox GetLangText("error_requires_modifier")
             editHotkey.Value := ""
             return
         }
@@ -1081,7 +1324,7 @@ ShowHotkeyEditor(cmd, custom) {
             if (item.command = cmd && item.default && item.default != "") {
                 normDefault := NormalizeHotkey(item.default)
                 if (normDefault = normCustom) {
-                    MsgBox "Custom shortcut cannot be the same as the default shortcut for this command!"
+                    MsgBox GetLangText("error_same_as_default")
                     editHotkey.Value := ""
                     return
                 }
@@ -1089,7 +1332,7 @@ ShowHotkeyEditor(cmd, custom) {
         }
         for _, item in gHotkeys {
             if (item.custom && item.custom != "" && NormalizeHotkey(item.custom) = NormalizeHotkey(hotkey) && StrLower(item.command) != StrLower(cmd)) {
-                MsgBox "This shortcut is already assigned to another command! Please choose a unique combination."
+                MsgBox GetLangText("error_already_assigned")
                 editHotkey.Value := ""
                 return
             }
@@ -1110,7 +1353,7 @@ UpdateHotkeyCheck(custom, def) {
 }
 
 DeleteAllHotkeys(*) {
-    if MsgBox("Do you really want to delete all custom hotkeys?", "Confirmation", "OKCancel Icon! ") = "OK" {
+    if MsgBox(GetLangText("confirm_delete_all"), GetLangText("confirm_title"), "OKCancel Icon! ") = "OK" {
         global gHotkeys, lv
         for idx, item in gHotkeys {
             gHotkeys[idx].custom := ""
@@ -1132,10 +1375,10 @@ UpdateStatus() {
     }
     if hwnd {
         statusColor := "0x00C000" ; зелёный
-        statusText := "Ableton Live window found — shortcuts are working"
+        statusText := GetLangText("status_found")
     } else {
         statusColor := "Red"
-        statusText := "Ableton Live window not found"
+        statusText := GetLangText("status_not_found")
     }
     if IsObject(statusLabel) {
         statusLabel.Text := statusText
@@ -1241,7 +1484,7 @@ HotkeyCheckDisplay(hk) {
     global gHotkeys, lastDefaultEdit
     norm := NormalizeHotkey(hk)
     if norm = "" || InStr(norm, "__") {
-        lastDefaultEdit.Value := "No matches found"
+        lastDefaultEdit.Value := GetLangText("no_matches")
         return
     }
 
