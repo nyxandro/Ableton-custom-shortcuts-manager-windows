@@ -4,6 +4,14 @@
 
 ![Windows](https://img.shields.io/badge/Windows-10%2F11-blue) ![AutoHotkey](https://img.shields.io/badge/AutoHotkey-v2.0.2%2B-green) ![Ableton Live](https://img.shields.io/badge/Ableton%20Live-12-orange) ![License](https://img.shields.io/badge/License-MIT-yellow)
 
+## 📥 Quick Download
+
+### 🚀 **Ready-to-Use Application** (No installation required)
+**[⬇️ Download AbletonCustomShortcutsManager.exe](AbletonCustomShortcutsManager.exe)** - Click to download the compiled application (1.4 MB)
+
+### 💻 **Source Code** (For developers)
+**[⬇️ Download .ahk script](AbletonCustomShortcutsManager.ahk)** - Requires AutoHotkey v2.0.2+ installation
+
 ## 🎹 What is Ableton Custom Shortcuts Manager?
 
 **Ableton Custom Shortcuts Manager for Windows** is the most comprehensive **Windows shortcuts manager** specifically designed for **Ableton Live users**. This powerful **custom keyboard shortcuts tool** allows you to completely **override Ableton Live's default keyboard shortcuts** with your own personalized combinations while keeping the original shortcuts accessible.
@@ -67,27 +75,53 @@ Perfect for **Windows music producers**, **Ableton Live power users**, and anyon
 
 ## 🛠️ Installation Guide for Windows
 
-### **Prerequisites**
-1. **Windows 10/11** (any edition)
+### **🚀 Option 1: Ready-to-Use Application (Recommended)**
+**For most users - no additional software required!**
+
+1. **Download** `AbletonCustomShortcutsManager.exe` from this repository
+2. **Place it** anywhere on your Windows PC (Desktop, Documents, etc.)
+3. **Double-click** the exe file to launch immediately
+4. **Configure auto-start** via Settings → "Run with Windows" (optional)
+
+**✅ Advantages:**
+- No AutoHotkey installation required
+- Works on any Windows 10/11 computer
+- Single portable file - easy to share or backup
+- Professional application experience
+
+### **🔧 Option 2: Source Code (For Developers)**
+**For users who want to modify the code or contribute**
+
+**Prerequisites:**
+1. **Windows 10/11** (any edition)  
 2. **AutoHotkey v2.0.2+** - Download from [autohotkey.com](https://www.autohotkey.com)
 3. **Ableton Live 12** (any edition)
 
-### **Quick Installation Steps**
+**Installation Steps:**
 1. **Download AutoHotkey v2.0.2+** and install it
 2. **Clone or download** this repository to your Windows PC
 3. **Double-click** `AbletonCustomShortcutsManager.ahk` to launch
 4. **Configure auto-start** via Settings → "Run with Windows" (optional)
 
-### **First Launch Setup**
-- The manager creates `AbletonHotkeys.ini` automatically
+**✅ Advantages:**
+- Full source code access
+- Ability to modify and customize
+- Learn AutoHotkey v2 programming
+- Contribute to the project
+
+### **First Launch Setup (Both Versions)**
+- The manager creates `AbletonHotkeys.ini` automatically in the same folder
 - No additional configuration required
 - Works immediately with Ableton Live 12
+- **Exe version**: Completely portable - copy anywhere and run
+- **Script version**: Requires AutoHotkey v2.0.2+ installed on the system
 
 ## 📁 Windows File Structure
 ```
 AbletonCustomShortcutsManager/
-├─ AbletonCustomShortcutsManager.ahk   # Main Windows application
-├─ AbletonHotkeys.ini                  # Your custom shortcuts config
+├─ AbletonCustomShortcutsManager.exe   # Ready-to-use application (recommended)
+├─ AbletonCustomShortcutsManager.ahk   # Source code (for developers)
+├─ AbletonHotkeys.ini                  # Your custom shortcuts config (auto-created)
 ├─ app.ico                             # Windows tray icon
 ├─ Changelog.txt                       # Version history
 └─ README.md                           # This documentation
@@ -199,4 +233,10 @@ This **Windows Ableton Custom Shortcuts Manager** is released under the **MIT Li
 
 ---
 
-**Download now and revolutionize your Ableton Live workflow on Windows!** 🚀 
+## 🎉 Get Started in 30 Seconds!
+
+1. **[Download AbletonCustomShortcutsManager.exe](AbletonCustomShortcutsManager.exe)** 
+2. **Double-click** to launch (no installation needed!)
+3. **Start customizing** your Ableton Live shortcuts immediately
+
+**Revolutionize your Ableton Live workflow on Windows today!** 🚀 

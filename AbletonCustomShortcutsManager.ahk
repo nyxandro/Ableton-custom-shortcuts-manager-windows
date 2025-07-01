@@ -337,7 +337,7 @@ gHotkeys := [
     {command: "Preview Selected File", default: "Shift + Enter", custom: ""},
     {command: "Search in Browser", default: "Ctrl + F", custom: ""},
     {command: "Insert Empty MIDI Clip", default: "Ctrl + Shift + M", custom: ""},
-    {command: "Bounce to New Track", default: "Ctrl + Alt + Shift + J", custom: ""},
+    {command: "Bounce to New Track", default: "Ctrl + B", custom: ""},
     {command: "Show/Hide Return Tracks", default: "Ctrl + Alt + R", custom: ""},
     {command: "Browser History Back", default: "Ctrl + [", custom: ""},
 	{command: "Browser History Forward", default: "Ctrl + ]", custom: ""},
@@ -554,7 +554,7 @@ ShowSettings(*) {
         
         ; Выбор языка
         settingsGui.Add("Text", "xm ym", GetLangText("settings_language"))
-        cbLanguage := settingsGui.Add("ComboBox", "w320 vcbLanguage")
+        cbLanguage := settingsGui.Add("DropDownList", "w320 vcbLanguage")
         cbLanguage.Add(["English", "Русский"])
         cbLanguage.Value := g_CurrentLanguage = "ru" ? 2 : 1
         
@@ -575,7 +575,7 @@ ShowSettings(*) {
         
         ; Выбор языка
         settingsGui.Add("Text", "xm ym", GetLangText("settings_language"))
-        cbLanguage := settingsGui.Add("ComboBox", "w320 vcbLanguage")
+        cbLanguage := settingsGui.Add("DropDownList", "w320 vcbLanguage")
         cbLanguage.Add(["English", "Русский"])
         cbLanguage.Value := g_CurrentLanguage = "ru" ? 2 : 1
         

@@ -9,4 +9,5 @@ $RECYCLE.BIN/
 
 # AutoHotkey compiled scripts
 *.exe
+!AbletonCustomShortcutsManager.exe
 *.ahk.bak 
